@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { useCart } from "@/context/CartContext";
 import { Minus, Plus, ShoppingCart, Trash2 } from "lucide-react";
 
-const PHONE_NUMBER = "919999999999"; // TODO: replace with your WhatsApp number
+const PHONE_NUMBER = "9630009838";
 
 const CartPopover: React.FC = () => {
   const { state, closeCart, removeItem, updateQty, total } = useCart();

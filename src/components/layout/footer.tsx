@@ -11,7 +11,7 @@ export default function PaintSellerFooter() {
           <div className="space-y-4">
             <h3 className="text-xl font-bold text-blue-400">Painterbabu Paints</h3>
             <p className="text-gray-300 text-sm leading-relaxed">
-              Your trusted partner for premium quality paints since 1985. We provide complete painting solutions for homes and businesses with expert guidance and top-notch products.
+              Delivering vibrant colors and lasting protection since 1985. We offer premium paints, expert advice, and complete solutions for homes and businesses.
             </p>
             <div className="flex space-x-4 pt-2">
               <Facebook className="w-5 h-5 text-gray-400 hover:text-blue-400 cursor-pointer transition-colors" />
@@ -35,17 +35,16 @@ export default function PaintSellerFooter() {
             </ul>
           </div>
 
-          {/* Services */}
+          {/* Support */}
           <div className="space-y-4">
             <h4 className="text-lg font-semibold text-blue-400">Services</h4>
             <ul className="space-y-2 text-sm">
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Professional Painting</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Color Matching</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Paint Calculator</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Home Delivery</a></li>
+              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">FAQ</a></li>
+              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Privacy Policy</a></li>
+              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Refund Policy</a></li>
+              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Terms & Conditions</a></li>
               <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Bulk Orders</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Paint Disposal</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Warranty Support</a></li>
+              
             </ul>
           </div>
 

@@ -77,7 +77,7 @@ const SubmitButton = ({ isSubmitting, onSubmit }) => {
       className={`w-full py-3 px-6 rounded-lg font-semibold text-white transition-all duration-200 ${
         isSubmitting 
           ? 'bg-gray-400 cursor-not-allowed' 
-          : 'bg-blue-600 hover:bg-blue-700 active:bg-blue-800 hover:shadow-lg'
+          : 'btn-hero hover:shadow-lg'
       } flex items-center justify-center`}
     >
       {isSubmitting ? (
@@ -194,6 +194,7 @@ const PremiumContactSection = () => {
     <section 
       ref={sectionRef}
       className="py-20 bg-gray-50"
+      id='contact'
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}

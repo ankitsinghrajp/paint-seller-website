@@ -1,4 +1,20 @@
-import paintCan from "@/assets/paint-can.jpg";
+import nillayamatt from "../assets/asian-paint-nilaya-arc-matt-wall-paint-Photoroom.png";
+import pearlescent from "../assets/Nilaya-Arc-Pearlescent-new-Photoroom.png";
+import royalAspira from "../assets/royale-aspira-emulsion-paint-Photoroom.png";
+import royalGlitz from "../assets/royale-glitz-reserv-new-packshot-Photoroom.png";
+import duralife from "../assets/ultima-protek-duralife.png";
+import apexultimaprotek from "../assets/apex-ultima-water-proof-Photoroom.png";
+import silkGlamourMatt from "../assets/silk-glamour-matt.png";
+import silkGlamourHighSheen from "../assets/silk-glamour-high-sheen.png";
+import silkGalmourSoftSheen from "../assets/Big-Silk_Glamor_Soft_Sheen_0-Photoroom.png";
+import weatherShieldPowerFlex from "../assets/800-dulux-weathershield-powerflexx-brilliant-white-4-lt-16456778694485-Photoroom.png";
+import weatherShieldMax from "../assets/dulux-weathershield-tile-paint-Photoroom.png";
+import weatherSheildRainproof from "../assets/weathershield-rainproof.png";
+import eterna from "../assets/eterna.png";
+import diamonGlo from "../assets/velvet-pearl-glo.png";
+import pearlGlo from "../assets/dulux-velvet-touch-pearl-glo-interior-paint-Photoroom.png";
+import excelEverlast from "../assets/excel-everlast.png";
+import kashmirHighSheen from "../assets/Nerolac-Impressions-Kashmir-High-Sheen_Cheatshot_R1-Photoroom.png";
 import { Brand, Application, SizeOption, ColorOption } from "@/context/CartContext";
 
 export type Product = {
@@ -47,7 +63,7 @@ export const products: Product[] = [
     features: ["Lime-Based Finish", "Artisanal Matt Finish", "10 Years Warranty"],
     sizes,
     colors: colorPalette,
-    image: paintCan,
+    image: nillayamatt,
   },
   {
     id: "asian-nilaya-arc-pearlescent",
@@ -58,7 +74,7 @@ export const products: Product[] = [
     features: ["Lime-Based Finish", "Alluring Pearl Finish", "10 Years Warranty"],
     sizes,
     colors: colorPalette,
-    image: paintCan,
+    image: pearlescent,
   },
   {
     id: "asian-royale-aspira",
@@ -69,7 +85,7 @@ export const products: Product[] = [
     features: ["Water Beading Technology", "Luxury with Teflon™", "8 Years Warranty"],
     sizes,
     colors: colorPalette,
-    image: paintCan,
+    image: royalAspira,
   },
   {
     id: "asian-royale-glitz",
@@ -80,7 +96,7 @@ export const products: Product[] = [
     features: ["Perfect Crème Finish in Ultra Sheen", "Teflon Surface Protector", "8 Years Warranty"],
     sizes,
     colors: colorPalette,
-    image: paintCan,
+    image: royalGlitz,
   },
   // Asian Exterior
   {
@@ -92,7 +108,7 @@ export const products: Product[] = [
     features: ["WALLS of S.T.E.E.L", "15 Years Warranty*", "Advanced PUD Formula"],
     sizes,
     colors: colorPalette,
-    image: paintCan,
+    image: duralife,
   },
   {
     id: "asian-apex-ultima-protek",
@@ -103,7 +119,7 @@ export const products: Product[] = [
     features: ["Home Lamination powered by Graphene", "12 Years Warranty*", "Elastomeric Armour"],
     sizes,
     colors: colorPalette,
-    image: paintCan,
+    image: apexultimaprotek,
   },
   // Berger Interior
   {
@@ -115,7 +131,7 @@ export const products: Product[] = [
     features: ["Rich Matt Finish", "Superior Cleanability", "Green Pro Certified"],
     sizes,
     colors: colorPalette,
-    image: paintCan,
+    image: silkGlamourMatt,
   },
   {
     id: "berger-silk-glamor-high-sheen",
@@ -126,7 +142,7 @@ export const products: Product[] = [
     features: ["Ultra Smooth Finish", "Elastomeric Film", "Low Smell"],
     sizes,
     colors: colorPalette,
-    image: paintCan,
+    image: silkGlamourHighSheen,
   },
   {
     id: "berger-silk-glamor-soft-sheen",
@@ -137,7 +153,7 @@ export const products: Product[] = [
     features: ["Rich sheen finish", "Superior Cleanability", "Elastomeric Film"],
     sizes,
     colors: colorPalette,
-    image: paintCan,
+    image: silkGalmourSoftSheen,
   },
   // Dulux Exterior
   {
@@ -149,7 +165,7 @@ export const products: Product[] = [
     features: ["High Sheen", "Triple Defence Technology", "PU Modified Acrylic"],
     sizes,
     colors: colorPalette,
-    image: paintCan,
+    image: weatherShieldPowerFlex,
   },
   {
     id: "dulux-weathershield-max",
@@ -160,7 +176,7 @@ export const products: Product[] = [
     features: ["PU Technology", "Elastomeric Film", "Sun Reflect"],
     sizes,
     colors: colorPalette,
-    image: paintCan,
+    image: weatherShieldMax,
   },
   {
     id: "dulux-weathershield-protect-rainproof",
@@ -171,7 +187,7 @@ export const products: Product[] = [
     features: ["Soft Sheen", "High durability", "Advanced Rainshield"],
     sizes,
     colors: colorPalette,
-    image: paintCan,
+    image: weatherSheildRainproof,
   },
   // Dulux Interior
   {
@@ -183,7 +199,7 @@ export const products: Product[] = [
     features: ["Mid Sheen", "High Washability", "Refreshing aroma"],
     sizes,
     colors: colorPalette,
-    image: paintCan,
+    image: eterna,
   },
   {
     id: "dulux-velvet-touch-diamond-glo",
@@ -194,7 +210,7 @@ export const products: Product[] = [
     features: ["High sheen", "Best in class stain repellence", "Durability"],
     sizes,
     colors: colorPalette,
-    image: paintCan,
+    image: diamonGlo,
   },
   {
     id: "dulux-velvet-touch-pearl-glo",
@@ -205,7 +221,7 @@ export const products: Product[] = [
     features: ["Mid sheen", "Smoothness", "Pearl like finish"],
     sizes,
     colors: colorPalette,
-    image: paintCan,
+    image: pearlGlo,
   },
   // Nerolac
   {
@@ -217,7 +233,7 @@ export const products: Product[] = [
     features: ["14 Years Warranty", "Anti Algal", "Anti Carbonation"],
     sizes,
     colors: colorPalette,
-    image: paintCan,
+    image: excelEverlast,
   },
   {
     id: "nerolac-impression-kashmir-high-sheen",
@@ -228,6 +244,6 @@ export const products: Product[] = [
     features: ["Luxury Finish", "Anti-fungal", "Kills 99% Germs"],
     sizes,
     colors: colorPalette,
-    image: paintCan,
+    image: kashmirHighSheen,
   },
 ];
