@@ -1,6 +1,20 @@
 import { MapPin, Phone, Mail, Clock, Facebook, Twitter, Instagram, Youtube } from 'lucide-react';
 
 export default function PaintSellerFooter() {
+    const handleSubmit = () => {
+ 
+      const whatsappNumber = 919630009838;
+      const message = "Hii Painterbabu I want to know more about your services";
+      
+      const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
+      
+      // Open WhatsApp
+      window.open(whatsappUrl, '_blank');
+      
+      
+      // Reset form after 4 seconds
+     
+  };
   return (
     <footer className="bg-slate-900 text-white">
       {/* Main Footer Content */}
@@ -14,10 +28,10 @@ export default function PaintSellerFooter() {
               Delivering vibrant colors and lasting protection since 1985. We offer premium paints, expert advice, and complete solutions for homes and businesses.
             </p>
             <div className="flex space-x-4 pt-2">
-              <Facebook className="w-5 h-5 text-gray-400 hover:text-blue-400 cursor-pointer transition-colors" />
-              <Twitter className="w-5 h-5 text-gray-400 hover:text-blue-400 cursor-pointer transition-colors" />
-              <Instagram className="w-5 h-5 text-gray-400 hover:text-pink-400 cursor-pointer transition-colors" />
-              <Youtube className="w-5 h-5 text-gray-400 hover:text-red-400 cursor-pointer transition-colors" />
+             <a href="https://www.facebook.com/people/Painter-Babu/100010432382679/" target='_blank'> <Facebook className="w-5 h-5 text-gray-400 hover:text-blue-400 cursor-pointer transition-colors" /> </a>
+             <a href="https://x.com/painterji" target='_blank'> <Twitter className="w-5 h-5 text-gray-400 hover:text-blue-400 cursor-pointer transition-colors" /> </a>
+             <a href="https://www.instagram.com/painterbabu1/#" target='_blank'> <Instagram className="w-5 h-5 text-gray-400 hover:text-pink-400 cursor-pointer transition-colors" /> </a>
+              <a href="https://www.youtube.com/channel/UCJeZcvqwhMKiJ35lrJfVIYg" target='_blank'><Youtube className="w-5 h-5 text-gray-400 hover:text-red-400 cursor-pointer transition-colors" /> </a>
             </div>
           </div>
 
@@ -55,29 +69,28 @@ export default function PaintSellerFooter() {
               <div className="flex items-start space-x-3">
                 <MapPin className="w-4 h-4 text-blue-400 mt-0.5 flex-shrink-0" />
                 <div className="text-gray-300">
-                  <p>123 Paint Street</p>
-                  <p>Industrial Area, City 560001</p>
+                  <p>
+Unit Nos.101-104, 1st Floor, </p>
+                  <p>SKY ONE, Kalyani Nagar, Pune, Maharashtra 411001</p>
                 </div>
               </div>
               
               <div className="flex items-center space-x-3">
                 <Phone className="w-4 h-4 text-blue-400 flex-shrink-0" />
                 <div className="text-gray-300">
-                  <p>+91 98765 43210</p>
-                  <p>+91 11 2345 6789</p>
+                  <p>+91 96 3000 9838</p>
                 </div>
               </div>
               
               <div className="flex items-center space-x-3">
                 <Mail className="w-4 h-4 text-blue-400 flex-shrink-0" />
-                <p className="text-gray-300">info@colorcraftpaints.com</p>
+                <p className="text-gray-300">contact.painterbabu@gmail.com</p>
               </div>
               
               <div className="flex items-start space-x-3">
                 <Clock className="w-4 h-4 text-blue-400 mt-0.5 flex-shrink-0" />
                 <div className="text-gray-300">
                   <p>Mon - Sat: 9:00 AM - 7:00 PM</p>
-                  <p>Sunday: 10:00 AM - 5:00 PM</p>
                 </div>
               </div>
             </div>
@@ -94,13 +107,9 @@ export default function PaintSellerFooter() {
               <p className="text-gray-300 text-sm">Get the latest color trends and painting tips delivered to your inbox</p>
             </div>
             <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
-              <input 
-                type="email" 
-                placeholder="Enter your email" 
-                className="px-4 py-2 bg-slate-800 text-white border border-slate-700 rounded-lg focus:outline-none focus:border-blue-400 min-w-64"
-              />
-              <button className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium">
-                Subscribe
+             
+              <button onClick={handleSubmit} className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium">
+                WhatsApp Us
               </button>
             </div>
           </div>
@@ -112,12 +121,12 @@ export default function PaintSellerFooter() {
         <div className="max-w-7xl mx-auto px-4 py-4">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-2 md:space-y-0">
             <p className="text-gray-400 text-sm text-center md:text-left">
-              © 2024 ColorCraft Paints. All rights reserved. | Bringing colors to life since 1985
+              © 2025 Painterbabu (a venture by Arway Global Services).
             </p>
             <div className="flex space-x-6 text-sm">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">Privacy Policy</a>
               <a href="#" className="text-gray-400 hover:text-white transition-colors">Terms of Service</a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">Sitemap</a>
+              <a href="#" className="text-gray-400 hover:text-white transition-colors">Privacy Policy</a>
+              <a href="#" className="text-gray-400 hover:text-white transition-colors">Refund Policy</a>
             </div>
           </div>
         </div>

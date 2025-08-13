@@ -11,6 +11,7 @@ import PremiumPaintBenefits from '@/components/layout/BenefitCard';
 import PremiumContactSection from '@/components/layout/contact';
 import PaintSellerFooter from '@/components/layout/footer';
 import Header from '@/components/layout/Header';
+import MobileOptimizedHero from '@/components/layout/herosection';
 
 const Index = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
@@ -114,35 +115,8 @@ const Index = () => {
     
     <Header/>
       {/* Hero Section */}
-     <section className="relative h-screen pt-40 flex items-center justify-center overflow-hidden bg-black">
-  <div 
-    className="absolute inset-0 opacity-60 bg-cover bg-center bg-no-repeat"
-    style={{ backgroundImage: `url(${luxuryHomeHero})` }}
-  />
-  <div className="absolute inset-0 hero-overlay" />
   
-  <div className="relative z-10 text-center text-luxury-white max-w-4xl mx-auto px-4">
-    <h1 className="font-serif-heading  text-white text-5xl md:text-7xl font-bold mb-6 leading-tight">
-      Transform Your Walls into <span className="text-gold">Works of Art</span>
-    </h1>
-    <p className="text-xl md:text-2xl mb-8 text-white max-w-2xl mx-auto">
-      Premium Paints. Expert Advice. Unmatched Durability.
-    </p>
-    <div className="flex flex-col sm:flex-row gap-4 justify-center">
-      <a href="/products">
-      <Button className="btn-hero w-full text-lg px-10 py-6">
-        Shop Now <ArrowRight className="ml-2 h-5 w-5" />
-      </Button>
-      </a>
-      <a href="#contact">
-      <Button className="btn-secondary w-full text-lg px-10 py-6">
-        Get a Free Quote
-      </Button>
-      </a>
-    </div>
-  </div>
-</section>
-
+          <MobileOptimizedHero/>
       {/* Paint Brand Showcase */}
       <PremiumPaintBrands/>
 

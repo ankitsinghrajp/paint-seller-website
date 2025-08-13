@@ -1,24 +1,24 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Phone, Mail, MapPin, ArrowRight, Shield, Check, Clock } from 'lucide-react';
 
-const InputField = ({ label, placeholder, type = "text", isTextarea = false }) => {
+const InputField = ({ label, placeholder, type = "text", isTextarea = false, value, onChange, required = false }) => {
   const [isFocused, setIsFocused] = useState(false);
-  const [value, setValue] = useState('');
 
   const InputComponent = isTextarea ? 'textarea' : 'input';
 
   return (
     <div className="relative">
       <label className="block text-sm font-medium text-gray-700 mb-2">
-        {label}
+        {label} {required && <span className="text-red-500">*</span>}
       </label>
       <InputComponent
         type={type}
         placeholder={placeholder}
         value={value}
-        onChange={(e) => setValue(e.target.value)}
+        onChange={onChange}
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
+        required={required}
         className={`w-full px-4 py-3 border border-gray-300 rounded-lg transition-all duration-200 ${
           isFocused 
             ? 'border-blue-500 ring-2 ring-blue-100 outline-none' 
@@ -69,25 +69,25 @@ const ContactItem = ({ icon: Icon, title, info, subtitle, delay }) => {
   );
 };
 
-const SubmitButton = ({ isSubmitting, onSubmit }) => {
+const SubmitButton = ({ isSubmitting, onSubmit, disabled }) => {
   return (
     <button
       onClick={onSubmit}
-      disabled={isSubmitting}
+      disabled={isSubmitting || disabled}
       className={`w-full py-3 px-6 rounded-lg font-semibold text-white transition-all duration-200 ${
-        isSubmitting 
+        isSubmitting || disabled
           ? 'bg-gray-400 cursor-not-allowed' 
-          : 'btn-hero hover:shadow-lg'
+          : 'bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 hover:shadow-lg'
       } flex items-center justify-center`}
     >
       {isSubmitting ? (
         <>
           <Clock className="h-5 w-5 mr-2 animate-spin" />
-          Sending...
+          Sending to WhatsApp...
         </>
       ) : (
         <>
-          Send Message
+          Send to WhatsApp
           <ArrowRight className="ml-2 h-5 w-5" />
         </>
       )}
@@ -98,14 +98,74 @@ const SubmitButton = ({ isSubmitting, onSubmit }) => {
 const ContactForm = ({ isVisible }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    phone: '',
+    email: '',
+    projectDetails: ''
+  });
+
+  const whatsappNumber = "919630009838"; 
+
+  const handleInputChange = (field, value) => {
+    setFormData(prev => ({
+      ...prev,
+      [field]: value
+    }));
+  };
+
+  const isFormValid = () => {
+    return formData.name.trim() !== '' && 
+           formData.phone.trim() !== '' && 
+           formData.email.trim() !== '';
+  };
+
+  const formatWhatsAppMessage = () => {
+    const message = `🎨 *New Paint Project Inquiry*
+
+👤 *Name:* ${formData.name}
+📱 *Phone:* ${formData.phone}
+📧 *Email:* ${formData.email}
+
+📝 *Project Details:*
+${formData.projectDetails || 'No additional details provided'}
+
+---
+*Sent from Paint Website Contact Form*`;
+
+    return encodeURIComponent(message);
+  };
 
   const handleSubmit = () => {
+    if (!isFormValid()) {
+      alert('Please fill in all required fields (Name, Phone, Email)');
+      return;
+    }
+
     setIsSubmitting(true);
+    
+    // Simulate brief loading for better UX
     setTimeout(() => {
+      const message = formatWhatsAppMessage();
+      const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
+      
+      // Open WhatsApp
+      window.open(whatsappUrl, '_blank');
+      
       setIsSubmitting(false);
       setIsSubmitted(true);
-      setTimeout(() => setIsSubmitted(false), 4000);
-    }, 2000);
+      
+      // Reset form after 4 seconds
+      setTimeout(() => {
+        setIsSubmitted(false);
+        setFormData({
+          name: '',
+          phone: '',
+          email: '',
+          projectDetails: ''
+        });
+      }, 4000);
+    }, 1000);
   };
 
   if (isSubmitted) {
@@ -115,8 +175,8 @@ const ContactForm = ({ isVisible }) => {
           <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
             <Check className="h-8 w-8 text-green-600" />
           </div>
-          <h3 className="text-xl font-semibold text-gray-900 mb-2">Thank you!</h3>
-          <p className="text-gray-600">We'll get back to you within 24 hours.</p>
+          <h3 className="text-xl font-semibold text-gray-900 mb-2">Message Sent!</h3>
+          <p className="text-gray-600">Your inquiry has been sent to WhatsApp. We'll respond shortly!</p>
         </div>
       </div>
     );
@@ -130,19 +190,48 @@ const ContactForm = ({ isVisible }) => {
       
       <div className="space-y-6">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <InputField label="Name" placeholder="Your full name" />
-          <InputField label="Phone" placeholder="Your phone number" />
+          <InputField 
+            label="Name" 
+            placeholder="Your full name" 
+            value={formData.name}
+            onChange={(e) => handleInputChange('name', e.target.value)}
+            required={true}
+          />
+          <InputField 
+            label="Phone" 
+            placeholder="Your phone number" 
+            value={formData.phone}
+            onChange={(e) => handleInputChange('phone', e.target.value)}
+            required={true}
+          />
         </div>
         
-        <InputField label="Email" placeholder="your@email.com" type="email" />
+        <InputField 
+          label="Email" 
+          placeholder="your@email.com" 
+          type="email" 
+          value={formData.email}
+          onChange={(e) => handleInputChange('email', e.target.value)}
+          required={true}
+        />
         
         <InputField 
           label="Project Details" 
           placeholder="Tell us about your painting project..."
           isTextarea={true}
+          value={formData.projectDetails}
+          onChange={(e) => handleInputChange('projectDetails', e.target.value)}
         />
         
-        <SubmitButton isSubmitting={isSubmitting} onSubmit={handleSubmit} />
+        <SubmitButton 
+          isSubmitting={isSubmitting} 
+          onSubmit={handleSubmit}
+          disabled={!isFormValid()}
+        />
+        
+        <p className="text-sm text-gray-500 text-center">
+          By clicking "Send to WhatsApp", your message will open in WhatsApp with all the details pre-filled.
+        </p>
       </div>
     </div>
   );
