@@ -1,4 +1,6 @@
 import { MapPin, Phone, Mail, Clock, Facebook, Twitter, Instagram, Youtube } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import logo from "../../assets/unboxxit.jpg";
 
 export default function PaintSellerFooter() {
     const handleSubmit = () => {
@@ -23,7 +25,30 @@ export default function PaintSellerFooter() {
           
           {/* Company Info */}
           <div className="space-y-4">
-            <h3 className="text-xl font-bold text-blue-400">Painterbabu Paints</h3>
+               <Link
+  to="/"
+  className="flex items-center gap-3 group transition-transform duration-200 hover:scale-105"
+>
+  {/* Logo with hover glow */}
+  <div className="relative flex-shrink-0">
+    <img
+      className="h-auto w-14 rounded-md shadow-lg shadow-black/30 sm:h-11 lg:h-12 drop-shadow-sm"
+      src={logo}
+      alt="Unboxxit Logo"
+    />
+    <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
+  </div>
+
+  {/* Brand name and tagline */}
+  <div className="flex flex-col leading-tight">
+    <span className="text-lg font-bold tracking-wide text-white/90 group-hover:text-primary">
+      Unboxxit
+    </span>
+    <span className="text-sm italic text-gray-400">
+      Premium Paints
+    </span>
+  </div>
+      </Link>
             <p className="text-gray-300 text-sm leading-relaxed">
               Delivering vibrant colors and lasting protection since 1985. We offer premium paints, expert advice, and complete solutions for homes and businesses.
             </p>

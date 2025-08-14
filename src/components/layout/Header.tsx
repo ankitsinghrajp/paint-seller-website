@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { ShoppingCart, Menu, X, Home, Package, Sparkles, Paintbrush } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/context/CartContext";
-import logo from "../../assets/logo.png";
+import logo from "../../assets/unboxxit.jpg";
 
 const Header: React.FC = () => {
   const { count, openCart } = useCart();
@@ -51,7 +51,7 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header className="w-full fixed top-0 z-50">
+    <header className="w-full py-2 fixed top-0 z-50">
       {/* Enhanced gradient background */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-50 via-indigo-50 to-purple-50 opacity-95" />
@@ -70,19 +70,31 @@ const Header: React.FC = () => {
       }`}>
         
         {/* Logo with subtle animation */}
-        <Link 
-          to="/" 
-          className="flex items-center gap-2 group transition-all duration-200 hover:scale-105"
-        >
-          <div className="relative">
-            <img 
-              className="h-9 w-auto sm:h-11 lg:h-12 drop-shadow-sm" 
-              src={logo} 
-              alt="Logo" 
-            />
-            <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
-          </div>
+        <Link
+  to="/"
+  className="flex items-center gap-3 group transition-transform duration-200 hover:scale-105"
+>
+  {/* Logo with hover glow */}
+  <div className="relative flex-shrink-0">
+    <img
+      className="h-auto w-14 rounded-md shadow-lg shadow-black/30 sm:h-11 lg:h-12 drop-shadow-sm"
+      src={logo}
+      alt="Unboxxit Logo"
+    />
+    <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
+  </div>
+
+  {/* Brand name and tagline */}
+  <div className="flex flex-col leading-tight">
+    <span className="text-lg font-bold tracking-wide text-gray-900 group-hover:text-primary">
+      Unboxxit
+    </span>
+    <span className="text-sm italic text-gray-600">
+      Premium Paints
+    </span>
+  </div>
         </Link>
+
 
         {/* Desktop Navigation - Enhanced Design */}
         <div className="hidden md:flex items-center gap-2 lg:gap-3">
