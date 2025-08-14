@@ -139,16 +139,6 @@ Size: ${stepSelection.size}`;
     setPage(1);
   };
 
-  const handleColorClick = (color: string) => {
-    setColorFilters(prev => {
-      const isSelected = prev.includes(color);
-      const newFilters = isSelected
-        ? prev.filter(c => c !== color)
-        : [...prev, color];
-      return newFilters;
-    });
-    setPage(1);
-  };
 
   const clearAllFilters = () => {
     setBrandFilters([]);
@@ -160,21 +150,6 @@ Size: ${stepSelection.size}`;
   };
 
   const hasActiveFilters = brandFilters.length > 0 || applicationFilters.length > 0 || colorFilters.length > 0 || query.length > 0 || stepSelection.brand || stepSelection.application || stepSelection.color;
-
-  // Color helper function for better color display
-  const getColorStyle = (color: string) => {
-    const colorMap: { [key: string]: string } = {
-      'White': '#ffffff',
-      'Blue': '#3b82f6',
-      'Red': '#ef4444',
-      'Green': '#22c55e',
-      'Orange': '#f97316',
-      'Yellow': '#eab308',
-      'Purple': '#a855f7',
-      'Pink': '#ec4899'
-    };
-    return colorMap[color] || color.toLowerCase();
-  };
 
   return (
     <div className="min-h-screen pt-20 flex flex-col bg-gradient-to-br from-purple-50 via-pink-50 to-yellow-50 relative overflow-hidden">
@@ -332,40 +307,6 @@ Size: ${stepSelection.size}`;
                             <span className="font-medium">
                               {app === 'Interior' ? '🏠 ' : '🏢 '}{app}
                             </span>
-                          </button>
-                        );
-                      })}
-                    </div>
-                  </div>
-
-                  {/* Color Filters */}
-                  <div>
-                    <h3 className="font-bold text-xl text-gray-900 mb-4">
-                      🎨 Colors
-                      {colorFilters.length > 0 && (
-                        <span className="ml-2 bg-orange-500 text-white text-sm px-2 py-1 rounded-full">
-                          {colorFilters.length}
-                        </span>
-                      )}
-                    </h3>
-                    <div className="grid grid-cols-2 gap-3">
-                      {colors.map((color) => {
-                        const isSelected = colorFilters.includes(color);
-                        return (
-                          <button
-                            key={color}
-                            onClick={() => handleColorClick(color)}
-                            className={`flex items-center gap-2 p-3 rounded-xl border-2 transition-all duration-300 hover:scale-[1.02] ${
-                              isSelected
-                                ? 'bg-orange-100 border-orange-400 text-orange-800'
-                                : 'bg-white border-gray-200 hover:border-orange-300 hover:bg-orange-50'
-                            }`}
-                          >
-                            <div 
-                              className="w-4 h-4 rounded-full border border-gray-300"
-                              style={{ backgroundColor: getColorStyle(color) }}
-                            />
-                            <span className="font-medium text-sm">{color}</span>
                           </button>
                         );
                       })}
