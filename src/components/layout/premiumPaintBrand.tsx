@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Check, Shield, Sparkles, Award } from 'lucide-react';
+import { Check, Shield, Sparkles, Award, ChevronRight } from 'lucide-react';
 import bergerSilkImage from "../../assets/silk-glamour-matt.png";
 import duraLifeImage from "../../assets/ultima-protek-duralife.png";
 import powerFlexxImage from "../../assets/800-dulux-weathershield-powerflexx-brilliant-white-4-lt-16456778694485-Photoroom.png";
 import kashmirHighSheenImage from "../../assets/Nerolac-Impressions-Kashmir-High-Sheen_Cheatshot_R1-Photoroom.png";
+import { Button } from '../ui/button';
 
 const PaintBrandCard = ({ brand, index }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -211,6 +212,14 @@ const PremiumPaintBrands = () => {
           ))}
         </div>
 
+      </div>
+
+      <div className='flex justify-center items-center mt-12'>
+        <a href="/products">
+        <Button className='btn-hero py-6 px-6 text-md flex justify-center items-center font-medium'>
+            View All Products <ChevronRight className='h-10 mt-1 w-10'/>
+        </Button>
+        </a>
       </div>
  
     </section>

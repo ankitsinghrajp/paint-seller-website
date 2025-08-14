@@ -13,7 +13,7 @@ import {
   PaginationPrevious,
 } from "@/components/ui/pagination";
 import { Helmet } from "react-helmet-async";
-import { Search, Filter, X, Grid3X3, List, Sparkles, Palette, Zap, Check } from "lucide-react";
+import { Search, Filter, X, Grid3X3, List, Sparkles, Palette, Zap, Check, MessageCircle, ArrowRight, ArrowLeft, Send } from "lucide-react";
 
 const PAGE_SIZE = 8;
 
@@ -21,13 +21,32 @@ const ProductsPage: React.FC = () => {
   const [query, setQuery] = useState("");
   const [brandFilters, setBrandFilters] = useState<string[]>([]);
   const [applicationFilters, setApplicationFilters] = useState<string[]>([]);
+  const [colorFilters, setColorFilters] = useState<string[]>([]);
   const [page, setPage] = useState(1);
   const [showFilters, setShowFilters] = useState(false);
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
 
+  // Requirements Form State
+  const [requirementsForm, setRequirementsForm] = useState({
+    brand: "",
+    application: "",
+    color: "",
+    description: ""
+  });
+
+  // Step-by-step Selection State
+  const [selectionStep, setSelectionStep] = useState(0);
+  const [stepSelection, setStepSelection] = useState({
+    brand: "",
+    application: "",
+    color: "",
+    size: ""
+  });
+
   const brands = ["Asian Paints", "Berger", "Dulux", "Nerolac"];
   const applications = ["Interior", "Exterior"];
-
+  const colors = ["White", "Blue", "Red", "Green", "Orange", "Yellow", "Purple", "Pink"];
+  const sizes = ["1L", "4L", "10L", "20L"];
 
   const filtered = useMemo(() => {
     const q = query.toLowerCase();
@@ -35,34 +54,97 @@ const ProductsPage: React.FC = () => {
       const matchQuery = !q || p.name.toLowerCase().includes(q) || p.features?.some((f) => f.toLowerCase().includes(q));
       const matchBrand = brandFilters.length === 0 || brandFilters.includes(p.brand);
       const matchApp = applicationFilters.length === 0 || applicationFilters.includes(p.application);
-      return matchQuery && matchBrand && matchApp;
+      
+      // Add color matching - you'll need to add color property to your products data
+      const matchColor = colorFilters.length === 0 || colorFilters.includes(p.color || "");
+      
+      // Apply step selection filters
+      const matchStepBrand = !stepSelection.brand || p.brand === stepSelection.brand;
+      const matchStepApp = !stepSelection.application || p.application === stepSelection.application;
+      const matchStepColor = !stepSelection.color || (p.color && p.color === stepSelection.color);
+      
+      return matchQuery && matchBrand && matchApp && matchColor && matchStepBrand && matchStepApp && matchStepColor;
     });
-  }, [query, brandFilters, applicationFilters]);
+  }, [query, brandFilters, applicationFilters, colorFilters, stepSelection]);
 
   const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
   const pageItems = filtered.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
 
+  // Requirements Form Handlers
+  const handleRequirementsSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const message = `Hi! I need paint with these requirements:
+Brand: ${requirementsForm.brand || 'Any'}
+Application: ${requirementsForm.application || 'Any'}
+Color: ${requirementsForm.color || 'Any'}
+Description: ${requirementsForm.description || 'No specific requirements'}`;
+    
+    // Replace with your actual WhatsApp number
+    const whatsappNumber = "1234567890"; // Update this with your WhatsApp number
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+  };
+
+  // Step Selection Handlers
+  const handleStepSelection = (type: keyof typeof stepSelection, value: string) => {
+    setStepSelection(prev => ({ ...prev, [type]: value }));
+    if (selectionStep < 3) {
+      setSelectionStep(selectionStep + 1);
+    }
+  };
+
+  const handleStepComplete = () => {
+    const message = `Hi! I want to order paint:
+Brand: ${stepSelection.brand}
+Application: ${stepSelection.application}
+Color: ${stepSelection.color}
+Size: ${stepSelection.size}`;
+    
+    // Replace with your actual WhatsApp number
+    const whatsappNumber = "1234567890"; // Update this with your WhatsApp number
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+    
+    // Reset and apply filters
+    setColorFilters([stepSelection.color]);
+    setBrandFilters([stepSelection.brand]);
+    setApplicationFilters([stepSelection.application]);
+    setPage(1);
+  };
+
+  const resetStepSelection = () => {
+    setSelectionStep(0);
+    setStepSelection({ brand: "", application: "", color: "", size: "" });
+  };
+
   const handleBrandClick = (brand: string) => {
-   
     setBrandFilters(prev => {
       const isSelected = prev.includes(brand);
       const newFilters = isSelected 
         ? prev.filter(b => b !== brand)
         : [...prev, brand];
-
       return newFilters;
     });
     setPage(1);
   };
 
   const handleApplicationClick = (application: string) => {
- 
     setApplicationFilters(prev => {
       const isSelected = prev.includes(application);
       const newFilters = isSelected
         ? prev.filter(a => a !== application) 
         : [...prev, application];
+      return newFilters;
+    });
+    setPage(1);
+  };
 
+  const handleColorClick = (color: string) => {
+    setColorFilters(prev => {
+      const isSelected = prev.includes(color);
+      const newFilters = isSelected
+        ? prev.filter(c => c !== color)
+        : [...prev, color];
       return newFilters;
     });
     setPage(1);
@@ -71,11 +153,28 @@ const ProductsPage: React.FC = () => {
   const clearAllFilters = () => {
     setBrandFilters([]);
     setApplicationFilters([]);
+    setColorFilters([]);
     setQuery("");
     setPage(1);
+    resetStepSelection();
   };
 
-  const hasActiveFilters = brandFilters.length > 0 || applicationFilters.length > 0 || query.length > 0;
+  const hasActiveFilters = brandFilters.length > 0 || applicationFilters.length > 0 || colorFilters.length > 0 || query.length > 0 || stepSelection.brand || stepSelection.application || stepSelection.color;
+
+  // Color helper function for better color display
+  const getColorStyle = (color: string) => {
+    const colorMap: { [key: string]: string } = {
+      'White': '#ffffff',
+      'Blue': '#3b82f6',
+      'Red': '#ef4444',
+      'Green': '#22c55e',
+      'Orange': '#f97316',
+      'Yellow': '#eab308',
+      'Purple': '#a855f7',
+      'Pink': '#ec4899'
+    };
+    return colorMap[color] || color.toLowerCase();
+  };
 
   return (
     <div className="min-h-screen pt-20 flex flex-col bg-gradient-to-br from-purple-50 via-pink-50 to-yellow-50 relative overflow-hidden">
@@ -115,7 +214,6 @@ const ProductsPage: React.FC = () => {
           </div>
         </div>
 
-  
 
         {/* Search and Filter Bar */}
         <div className="mb-8">
@@ -143,7 +241,7 @@ const ProductsPage: React.FC = () => {
                   Filters
                   {hasActiveFilters && (
                     <span className="bg-orange-400 text-white text-xs rounded-full w-6 h-6 flex items-center justify-center font-bold">
-                      {brandFilters.length + applicationFilters.length}
+                      {brandFilters.length + applicationFilters.length + colorFilters.length}
                     </span>
                   )}
                 </button>
@@ -162,7 +260,7 @@ const ProductsPage: React.FC = () => {
             {/* Filters */}
             {showFilters && (
               <div className="border-t pt-8">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                   
                   {/* Brand Filters */}
                   <div>
@@ -234,6 +332,40 @@ const ProductsPage: React.FC = () => {
                             <span className="font-medium">
                               {app === 'Interior' ? '🏠 ' : '🏢 '}{app}
                             </span>
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                  {/* Color Filters */}
+                  <div>
+                    <h3 className="font-bold text-xl text-gray-900 mb-4">
+                      🎨 Colors
+                      {colorFilters.length > 0 && (
+                        <span className="ml-2 bg-orange-500 text-white text-sm px-2 py-1 rounded-full">
+                          {colorFilters.length}
+                        </span>
+                      )}
+                    </h3>
+                    <div className="grid grid-cols-2 gap-3">
+                      {colors.map((color) => {
+                        const isSelected = colorFilters.includes(color);
+                        return (
+                          <button
+                            key={color}
+                            onClick={() => handleColorClick(color)}
+                            className={`flex items-center gap-2 p-3 rounded-xl border-2 transition-all duration-300 hover:scale-[1.02] ${
+                              isSelected
+                                ? 'bg-orange-100 border-orange-400 text-orange-800'
+                                : 'bg-white border-gray-200 hover:border-orange-300 hover:bg-orange-50'
+                            }`}
+                          >
+                            <div 
+                              className="w-4 h-4 rounded-full border border-gray-300"
+                              style={{ backgroundColor: getColorStyle(color) }}
+                            />
+                            <span className="font-medium text-sm">{color}</span>
                           </button>
                         );
                       })}

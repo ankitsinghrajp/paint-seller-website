@@ -170,25 +170,47 @@ const ProductDetailPage: React.FC = () => {
                   </div>
                 )}
               </div>
-
             </div>
-               {/* Total price */}
-             <div className="animate-fade-in-up  hidden md:block" style={{ animationDelay: '800ms' }}>
-              <div className="rounded-2xl bg-gradient-to-r from-gray-600 via-gray-700 to-gray-800 p-6 text-white shadow-2xl relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-r from-gray-500/20 to-gray-500/20 animate-pulse"></div>
-                <div className="relative z-10">
-                  <div className="text-sm opacity-80 mb-1 flex items-center gap-2">
-                    <Truck className="w-4 h-4" />
-                    Total Price 
+
+            {/* Selected Color Display */}
+            {selectedColor && (
+              <div className="bg-white/80 backdrop-blur-lg rounded-2xl p-6 shadow-xl border border-white/40 animate-fade-in-up">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-4">
+                    <div 
+                      className="w-16 h-16 rounded-2xl shadow-2xl transition-all duration-500 hover:scale-110 hover:rotate-6 relative overflow-hidden"
+                      style={{ 
+                        backgroundColor: selectedColor.hex,
+                        boxShadow: `0 8px 25px ${selectedColor.hex}40, 0 0 0 3px white, 0 0 0 6px ${selectedColor.hex}20`
+                      }}
+                    >
+                      <div className="absolute inset-0 bg-gradient-to-br from-white/30 to-transparent"></div>
+                      <div className="absolute bottom-1 right-1 w-3 h-3 bg-white/60 rounded-full animate-pulse"></div>
+                    </div>
+                    <div>
+                      <p className="text-sm font-medium text-gray-600 mb-1">Selected Color</p>
+                      <h4 className="text-xl font-bold text-gray-900">{selectedColor.name}</h4>
+                      <p className="text-sm text-gray-500 mt-1">Color Code: {selectedColor.hex}</p>
+                    </div>
                   </div>
-                  <div className="text-3xl font-black tracking-tight">₹{totalPrice.toLocaleString()}</div>
-                  <div className="text-sm opacity-70 mt-1">
-                    ₹{product.pricePerL}/L • {size} • {qty} unit{qty > 1 ? 's' : ''}
+                  
+                  <div className="flex items-center gap-2 bg-gradient-to-r from-green-100 to-blue-100 px-4 py-2 rounded-xl">
+                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                    <span className="text-sm font-semibold text-gray-700">Active</span>
                   </div>
                 </div>
+                
+                {/* Color preview stripe */}
+                <div className="mt-4 h-2 rounded-full overflow-hidden bg-gray-100">
+                  <div 
+                    className="h-full rounded-full animate-expand-width"
+                    style={{ 
+                      background: `linear-gradient(90deg, ${selectedColor.hex}, ${selectedColor.hex}dd, ${selectedColor.hex})`
+                    }}
+                  ></div>
+                </div>
               </div>
-            </div>
-
+            )}
           </section>
 
           {/* Product Details Section */}
@@ -234,7 +256,9 @@ const ProductDetailPage: React.FC = () => {
                 </div>
                 
                 {selectedColor && (
-                  <div className="text-center mt-4 p-3 bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl animate-fade-in">
+                  <div className="text-center w-full py-4 px-2 mt-4 p-3 rounded-xl animate-fade-in"
+                  style={{ backgroundColor: selectedColor.hex }} 
+                  >
                     <span className="text-md font-semibold text-gray-800">
                       Selected: <span>{selectedColor.name}</span>
                     </span>
@@ -291,30 +315,13 @@ const ProductDetailPage: React.FC = () => {
             </div>
             </div>
 
-            {/* Price Display */}
-            <div className="animate-fade-in-up block md:hidden" style={{ animationDelay: '800ms' }}>
-              <div className="rounded-2xl bg-gradient-to-r from-gray-600 via-gray-700 to-gray-800 p-6 text-white shadow-2xl relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-r from-gray-500/20 to-gray-500/20 animate-pulse"></div>
-                <div className="relative z-10">
-                  <div className="text-sm opacity-80 mb-1 flex items-center gap-2">
-                    <Truck className="w-4 h-4" />
-                    Total Price 
-                  </div>
-                  <div className="text-3xl font-black tracking-tight">₹{totalPrice.toLocaleString()}</div>
-                  <div className="text-sm opacity-70 mt-1">
-                    ₹{product.pricePerL}/L • {size} • {qty} unit{qty > 1 ? 's' : ''}
-                  </div>
-                </div>
-              </div>
-            </div>
-
             {/* Add to Cart Button */}
             <div className="animate-fade-in-up" style={{ animationDelay: '1000ms' }}>
               <Button 
                 variant="hero" 
                 onClick={handleAddToCart}
                 disabled={addingToCart}
-                className={`w-full h-14 text-lg font-black rounded-2xl transition-all duration-500 relative overflow-hidden ${
+                className={`w-full h-14 mt-1 text-lg font-black rounded-2xl transition-all duration-500 relative overflow-hidden ${
                   addingToCart 
                     ? "bg-gradient-to-r from-green-400 to-blue-500 scale-95" 
                     : "bg-gradient-to-r from-purple-500 to-pink-500 hover:scale-105 hover:shadow-2xl active:scale-95"

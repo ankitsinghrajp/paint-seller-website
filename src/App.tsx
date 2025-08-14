@@ -10,6 +10,7 @@ import ProductDetail from "./pages/ProductDetail";
 import { CartProvider } from "@/context/CartContext";
 import CartPopover from "@/components/cart/CartPopover";
 import { HelmetProvider } from "react-helmet-async";
+import PaintSelector from "./pages/PaintSelector";
 
 const queryClient = new QueryClient();
 
@@ -25,6 +26,7 @@ const App = () => (
               <Route path="/" element={<Index />} />
               <Route path="/products" element={<Products />} />
               <Route path="/product/:id" element={<ProductDetail />} />
+              <Route path="/paint-selector" element={<PaintSelector/>}/>
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>

@@ -79,12 +79,7 @@ const ProductCard: React.FC<{ product: ProductCardProps }> = ({ product }) => {
       </div>
            
       <div className="relative z-10 flex items-center justify-between">
-        <div className="transform transition-all duration-300 group-hover:scale-105">
-          <div className="text-2xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent animate-pulse">
-            ₹{product.pricePerL}
-          </div>
-          <div className="text-sm text-gray-600 font-medium">per 1L</div>
-        </div>
+       
         {product.rating && (
           <div className="flex items-center space-x-1 transform transition-all duration-300 group-hover:scale-110">
             <div className="flex items-center space-x-1 p-2 bg-gradient-to-r from-yellow-100 to-orange-100 rounded-full">

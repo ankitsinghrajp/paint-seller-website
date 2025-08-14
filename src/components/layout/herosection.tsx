@@ -46,13 +46,13 @@ const MobileOptimizedHero = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-md sm:max-w-none mx-auto">
             <a href="/products">
             <button className="w-full btn-hero sm:w-auto bg-yellow-400 hover:bg-yellow-500 text-white font-semibold text-lg px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-center shadow-lg">
-              Shop Now 
+              All Products 
               <ArrowRight className="ml-2 h-5 w-5" />
             </button>
             </a>
-            <a className= "hidden md:block" href="#contact">
+            <a className= "hidden md:block" href="/paint-selector">
             <button className="w-full sm:w-auto border-2 border-white text-white hover:bg-white hover:text-black font-semibold text-lg px-8 py-4 rounded-lg transition-all duration-300 flex items-center justify-center">
-              Get a Free Quote
+                Quick Paint Selector
             </button>
             </a>
           </div>
