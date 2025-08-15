@@ -103,7 +103,7 @@ const ModernHero = () => {
               </button>
             </a>
             
-            <a href="/color-match" className="w-full sm:w-auto group">
+            <a href="/paint-selector" className="w-full sm:w-auto group">
               <button className="w-full sm:w-auto bg-white/80 backdrop-blur-xl border-2 border-pink-200 text-gray-800 hover:bg-white hover:border-pink-300 hover:shadow-xl font-bold text-lg px-8 py-4 rounded-2xl transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-4 shadow-lg">
                 <div className="w-8 h-8 bg-gradient-to-r from-pink-400 to-rose-400 rounded-full flex items-center justify-center">
                   <Brush className="w-4 h-4 text-white" />
