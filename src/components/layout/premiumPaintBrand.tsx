@@ -11,7 +11,7 @@ const PaintBrandCard = ({ brand, index }) => {
   
   return (
     <div 
-      className={`group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden ${
+      className={`group relative bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden ${
         isHovered ? 'transform -translate-y-3 scale-[1.02]' : ''
       }`}
       onMouseEnter={() => setIsHovered(true)}
@@ -19,8 +19,8 @@ const PaintBrandCard = ({ brand, index }) => {
       style={{ animationDelay: `${index * 100}ms` }}
     >
       {/* Premium border gradient */}
-      <div className="absolute inset-0 bg-gradient-to-r from-purple-500 via-blue-500 to-yellow-500 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 p-0.5">
-        <div className="w-full h-full bg-white rounded-2xl"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-pink-400 via-rose-400 to-purple-400 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 p-0.5">
+        <div className="w-full h-full bg-white/95 backdrop-blur-sm rounded-2xl"></div>
       </div>
       
       <div className="relative p-6 z-10">
@@ -33,7 +33,7 @@ const PaintBrandCard = ({ brand, index }) => {
               isHovered ? 'scale-105 rotate-2 brightness-110' : 'scale-100 rotate-0 brightness-100'
             }`}
           />
-          <div className={`absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-white/5 transition-all duration-500 ${
+          <div className={`absolute inset-0 bg-gradient-to-t from-pink-900/10 via-transparent to-white/5 transition-all duration-500 ${
             isHovered ? 'opacity-60 scale-105' : 'opacity-30 scale-100'
           }`}></div>
           
@@ -60,19 +60,19 @@ const PaintBrandCard = ({ brand, index }) => {
         {/* Brand Info */}
         <div>
           <div className="flex items-center justify-between mb-2">
-            <h3 className="font-bold text-xl text-gray-800 group-hover:text-purple-700 transition-colors duration-300">
+            <h3 className="font-bold text-xl text-gray-800 group-hover:text-pink-700 transition-colors duration-300">
               {brand.name}
             </h3>
-            <Award className={`h-5 w-5 text-yellow-500 transition-all duration-300 ${
+            <Award className={`h-5 w-5 text-pink-500 transition-all duration-300 ${
               isHovered ? 'rotate-12 scale-110' : ''
             }`} />
           </div>
           
-          <h4 className="font-semibold text-purple-600 mb-2 text-sm uppercase tracking-wide">
+          <h4 className="font-semibold text-rose-600 mb-2 text-sm uppercase tracking-wide">
             {brand.product}
           </h4>
           
-          <p className="text-yellow-600 font-semibold mb-4 text-sm italic">
+          <p className="text-pink-600 font-semibold mb-4 text-sm italic">
             "{brand.tagline}"
           </p>
           
@@ -95,20 +95,20 @@ const PaintBrandCard = ({ brand, index }) => {
           </div>
           
           {/* Warranty Badge */}
-          <div className={`flex items-center justify-between p-3 rounded-lg bg-gradient-to-r from-purple-50 to-blue-50 transition-all duration-300 ${
-            isHovered ? 'from-purple-100 to-blue-100 transform scale-105' : ''
+          <div className={`flex items-center justify-between p-3 rounded-lg bg-gradient-to-r from-pink-50 to-rose-50 transition-all duration-300 ${
+            isHovered ? 'from-pink-100 to-rose-100 transform scale-105' : ''
           }`}>
-            <span className="text-sm font-semibold text-purple-700">
+            <span className="text-sm font-semibold text-pink-700">
               Warranty: {brand.warranty}
             </span>
-            <Shield className={`h-5 w-5 text-yellow-500 transition-all duration-300 ${
+            <Shield className={`h-5 w-5 text-pink-500 transition-all duration-300 ${
               isHovered ? 'rotate-6 scale-110' : ''
             }`} />
           </div>
         </div>
         
         {/* Hover overlay effect */}
-        <div className={`absolute inset-0 bg-gradient-to-br from-purple-500/5 to-blue-500/5 rounded-2xl transition-opacity duration-500 ${
+        <div className={`absolute inset-0 bg-gradient-to-br from-pink-500/5 to-rose-500/5 rounded-2xl transition-opacity duration-500 ${
           isHovered ? 'opacity-100' : 'opacity-0'
         }`}></div>
       </div>
@@ -176,26 +176,49 @@ const PremiumPaintBrands = () => {
     }
   ];
 
-
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-50 via-white to-purple-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-20 relative overflow-hidden">
+      {/* Animated Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-pink-50 via-rose-50 to-pink-100"></div>
+      
+      {/* Animated floating elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        {/* Large floating orbs */}
+        <div className="absolute -top-20 -left-20 w-96 h-96 bg-gradient-to-br from-pink-200/30 to-rose-300/30 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '4s' }}></div>
+        <div className="absolute -bottom-20 -right-20 w-80 h-80 bg-gradient-to-br from-rose-200/30 to-pink-300/30 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '3s', animationDelay: '1s' }}></div>
+        <div className="absolute top-1/3 left-1/4 w-64 h-64 bg-gradient-to-br from-pink-300/20 to-rose-200/20 rounded-full blur-2xl animate-pulse" style={{ animationDuration: '5s', animationDelay: '2s' }}></div>
+        
+        {/* Smaller animated dots */}
+        <div className="absolute top-1/4 right-1/3 w-4 h-4 bg-pink-400/40 rounded-full animate-bounce" style={{ animationDelay: '0s', animationDuration: '2s' }}></div>
+        <div className="absolute top-2/3 left-1/3 w-3 h-3 bg-rose-400/40 rounded-full animate-bounce" style={{ animationDelay: '1s', animationDuration: '2.5s' }}></div>
+        <div className="absolute top-1/2 right-1/4 w-2 h-2 bg-pink-500/40 rounded-full animate-bounce" style={{ animationDelay: '0.5s', animationDuration: '3s' }}></div>
+        <div className="absolute bottom-1/3 left-1/2 w-3 h-3 bg-rose-300/40 rounded-full animate-bounce" style={{ animationDelay: '2s', animationDuration: '2.2s' }}></div>
+        
+        {/* Subtle moving waves */}
+        <div className="absolute top-0 left-0 w-full h-full">
+          <div className="absolute top-10 left-0 w-full h-px bg-gradient-to-r from-transparent via-pink-300/30 to-transparent animate-pulse" style={{ animationDuration: '6s' }}></div>
+          <div className="absolute top-20 left-0 w-full h-px bg-gradient-to-r from-transparent via-rose-300/30 to-transparent animate-pulse" style={{ animationDuration: '4s', animationDelay: '2s' }}></div>
+          <div className="absolute bottom-10 left-0 w-full h-px bg-gradient-to-r from-transparent via-pink-200/30 to-transparent animate-pulse" style={{ animationDuration: '5s', animationDelay: '1s' }}></div>
+        </div>
+      </div>
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header with animation */}
         <div className="text-center mb-16 animate-fade-in">
-          <div className="inline-flex items-center justify-center p-2 bg-purple-100 rounded-full mb-6">
-            <Sparkles className="h-6 w-6 text-purple-600 mr-2" />
-            <span className="text-purple-700 font-semibold text-sm uppercase tracking-wide">Premium Quality</span>
+          <div className="inline-flex items-center justify-center p-2 bg-pink-100/80 backdrop-blur-sm rounded-full mb-6 border border-pink-200/50">
+            <Sparkles className="h-6 w-6 text-pink-600 mr-2" />
+            <span className="text-pink-700 font-semibold text-sm uppercase tracking-wide">Premium Quality</span>
           </div>
           
           <h2 className="font-bold text-4xl md:text-5xl lg:text-6xl text-gray-800 mb-6 leading-tight">
             Premium Paint
-            <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent"> Brands</span>
+            <span className="bg-gradient-to-r from-pink-600 to-rose-600 bg-clip-text text-transparent"> Brands</span>
           </h2>
           
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             We partner with the world's leading paint manufacturers to bring you 
-            <span className="font-semibold text-purple-600"> unmatched quality</span> and 
-            <span className="font-semibold text-blue-600"> innovation</span>
+            <span className="font-semibold text-pink-600"> unmatched quality</span> and 
+            <span className="font-semibold text-rose-600"> innovation</span>
           </p>
         </div>
 
@@ -211,17 +234,15 @@ const PremiumPaintBrands = () => {
             </div>
           ))}
         </div>
-
       </div>
 
-      <div className='flex justify-center items-center mt-12'>
+      <div className='flex justify-center items-center mt-12 relative z-10'>
         <a href="/products">
-        <Button className='btn-hero py-6 px-6 text-md flex justify-center items-center font-medium'>
+        <Button className='btn-hero py-6 px-6 text-md flex justify-center items-center font-medium bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white border-0 shadow-lg hover:shadow-xl transition-all duration-300'>
             View All Products <ChevronRight className='h-10 mt-1 w-10'/>
         </Button>
         </a>
       </div>
- 
     </section>
   );
 };

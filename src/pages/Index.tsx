@@ -12,6 +12,7 @@ import PremiumContactSection from '@/components/layout/contact';
 import PaintSellerFooter from '@/components/layout/footer';
 import Header from '@/components/layout/Header';
 import MobileOptimizedHero from '@/components/layout/herosection';
+import QualityStandardsSection from '@/components/layout/qualityStandardSection';
 
 const Index = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
@@ -124,57 +125,7 @@ const Index = () => {
      <PremiumPaintBenefits/>
 
       {/* Quality Assurance Section */}
-        <section id="quality" className="py-12 md:py-20 bg-luxury-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-           
-                <div className="order-2 lg:order-1">
-                    <h2 className="font-serif-heading text-3xl md:text-4xl lg:text-5xl font-bold text-navy mb-4 md:mb-6 leading-tight">
-                        Uncompromising Quality Standards
-                    </h2>
-                    <p className="text-lg md:text-xl text-navy/70 mb-6 md:mb-8 leading-relaxed">
-                        Every paint we offer undergoes rigorous testing to ensure it meets our premium standards for durability, coverage, and finish.
-                    </p>
-                    
-                    <div className="space-y-4 md:space-y-6">
-                          
-                        <div className="flex items-start">
-                            <div className="w-8 h-8 rounded-full bg-gold flex items-center justify-center mr-3 md:mr-4 mt-1 flex-shrink-0">
-                                <i data-lucide="check" className="h-4 w-4 md:h-5 md:w-5 text-navy"></i>
-                            </div>
-                            <div className="flex-1">
-                                <h4 className="font-semibold text-navy mb-1 md:mb-2 text-base md:text-lg">Advanced Technology Formulas</h4>
-                                <p className="text-navy/70 text-sm md:text-base leading-relaxed">Cutting-edge paint chemistry for superior performance</p>
-                            </div>
-                        </div>
-                        
-                        <div className="flex items-start">
-                            <div className="w-8 h-8 rounded-full bg-gold flex items-center justify-center mr-3 md:mr-4 mt-1 flex-shrink-0">
-                                <i data-lucide="check" className="h-4 w-4 md:h-5 md:w-5 text-navy"></i>
-                            </div>
-                            <div className="flex-1">
-                                <h4 className="font-semibold text-navy mb-1 md:mb-2 text-base md:text-lg">Certified Application Partners</h4>
-                                <p className="text-navy/70 text-sm md:text-base leading-relaxed">Professional painters trained in premium application techniques</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-             
-                <div className="order-1 lg:order-2">
-                    <div className="relative">
-                        <img 
-                            src= {qualityStandards}
-                            alt="Premium paint quality demonstration"
-                            className="w-full h-64 md:h-80 lg:h-96 object-cover rounded-2xl shadow-lg"
-                        />
-                        <div className="absolute -bottom-3 -right-3 md:-bottom-6 md:-right-6 w-16 h-16 md:w-24 md:h-24 bg-gold rounded-full flex items-center justify-center shadow-lg">
-                            <i data-lucide="award" className="h-8 w-8 md:h-12 md:w-12 text-navy"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+     <QualityStandardsSection/>
 
       {/* Final CTA & Contact */}
    <PremiumContactSection/>

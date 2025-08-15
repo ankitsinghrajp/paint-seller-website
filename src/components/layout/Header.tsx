@@ -108,8 +108,8 @@ const Header: React.FC = () => {
                 to={link.path}
                 className={`relative flex items-center gap-2 px-4 py-2.5 lg:px-6 lg:py-3 rounded-xl font-semibold transition-all duration-200 group overflow-hidden ${
                   isActive 
-                    ? "text-white bg-gradient-to-r from-blue-500 to-indigo-500 shadow-lg shadow-blue-500/25 scale-105" 
-                    : "text-gray-700 hover:text-white hover:bg-gradient-to-r hover:from-blue-400 hover:to-indigo-400 hover:shadow-md hover:scale-105"
+                    ? "bg-gradient-to-r from-pink-500 via-rose-500 to-purple-600 hover:from-pink-600 hover:via-rose-600 hover:to-purple-700 text-white font-bold  shadow-md shadow-blue-500/25 scale-105" 
+                    : "text-gray-700 hover:text-white hover:bg-gradient-to-r hover:from-pink-300 hover:via-rose-400 hover:to-purple-300 hover:shadow-md hover:scale-105"
                 }`}
                 style={{ animationDelay: `${index * 100}ms` }}
               >
