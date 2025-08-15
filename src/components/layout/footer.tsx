@@ -18,7 +18,7 @@ export default function PaintSellerFooter() {
      
   };
   return (
-    <footer className="relative bg-gradient-to-br from-blue-600 via-slate-800 to-indigo-900 text-white overflow-hidden">
+    <footer className="relative bg-gradient-to-br from-blue-700 via-slate-800 to-indigo-900 text-white overflow-hidden">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-10 left-10 w-32 h-32 bg-indigo-500/30 rounded-full blur-xl animate-pulse"></div>
@@ -89,7 +89,7 @@ export default function PaintSellerFooter() {
 
           {/* Product Categories */}
           <div className="space-y-4 transform hover:translateY(-2) transition-transform duration-300">
-            <h4 className="text-lg font-semibold text-indigo-400 relative">
+            <h4 className="text-lg font-semibold text-white relative">
               Our Products
               <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-indigo-400 group-hover:w-full transition-all duration-300"></div>
             </h4>
@@ -106,7 +106,7 @@ export default function PaintSellerFooter() {
 
           {/* Support */}
           <div className="space-y-4 transform hover:translateY(-2) transition-transform duration-300">
-            <h4 className="text-lg font-semibold text-indigo-400">Services</h4>
+            <h4 className="text-lg font-semibold text-white">Services</h4>
             <ul className="space-y-2 text-sm">
               <li><a href="#" className="text-gray-300 hover:text-indigo-400 transition-colors duration-200 hover:translate-x-1 transform inline-block">FAQ</a></li>
               <li><a href="#" className="text-gray-300 hover:text-indigo-400 transition-colors duration-200 hover:translate-x-1 transform inline-block">Privacy Policy</a></li>
@@ -119,7 +119,7 @@ export default function PaintSellerFooter() {
 
           {/* Contact Info */}
           <div className="space-y-4 transform hover:translateY(-2) transition-transform duration-300">
-            <h4 className="text-lg font-semibold text-indigo-400">Contact Us</h4>
+            <h4 className="text-lg font-semibold text-white">Contact Us</h4>
             <div className="space-y-3 text-sm">
               <div className="flex items-start space-x-3 group">
                 <MapPin className="w-4 h-4 text-indigo-400 mt-0.5 flex-shrink-0 group-hover:animate-bounce" />
