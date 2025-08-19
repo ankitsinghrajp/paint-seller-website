@@ -1,5 +1,3 @@
-import { useState } from 'react';
-import { Shield, Palette, Award,  Sparkles,  Sun, TreePine } from 'lucide-react';
 
 import PremiumPaintBrands from '@/components/layout/premiumPaintBrand';
 import PremiumPaintBenefits from '@/components/layout/BenefitCard';
@@ -8,6 +6,7 @@ import PaintSellerFooter from '@/components/layout/footer';
 import Header from '@/components/layout/Header';
 import MobileOptimizedHero from '@/components/layout/herosection';
 import QualityStandardsSection from '@/components/layout/qualityStandardSection';
+import ProductCarousel from '@/components/layout/slider';
 
 const Index = () => {
 
@@ -17,6 +16,8 @@ const Index = () => {
     
     <Header/>
       {/* Hero Section */}
+
+         <ProductCarousel/>
   
           <MobileOptimizedHero/>
       {/* Paint Brand Showcase */}
