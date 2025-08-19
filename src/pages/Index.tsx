@@ -17,9 +17,9 @@ const Index = () => {
     <Header/>
       {/* Hero Section */}
 
-         <ProductCarousel/>
   
           <MobileOptimizedHero/>
+         <ProductCarousel/>
       {/* Paint Brand Showcase */}
       <PremiumPaintBrands/>
 
