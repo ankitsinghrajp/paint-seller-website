@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { ShoppingCart, Menu, X, Home, Package, Sparkles, Paintbrush } from "lucide-react";
+import { ShoppingCart, Menu, X, Home, Package, Sparkles, Paintbrush, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/context/CartContext";
 import logo from "../../assets/unboxxit.jpg";
@@ -40,7 +40,8 @@ const Header: React.FC = () => {
   const navLinks = [
     { path: "/", label: "Home", exact: true, icon: Home },
     {path:"/paint-selector",label:"Paint Selector", exact:false, icon: Paintbrush},
-    { path: "/products", label: "All Products", exact: false, icon: Package }
+    { path: "/products", label: "All Products", exact: false, icon: Package },
+    { path: "/contact", label: "Contact Us", exact:false, icon: Mail}
   ];
 
   const isActiveLink = (path: string, exact: boolean) => {
@@ -177,7 +178,7 @@ const Header: React.FC = () => {
       {/* Compact Mobile Menu - No Full Screen Overlay */}
       <div 
         className={`md:hidden relative transition-all duration-300 ease-out ${
-          isMobileMenuOpen ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
+          isMobileMenuOpen ? "max-h-52 opacity-100" : "max-h-0 opacity-0"
         } overflow-hidden`}
         data-mobile-menu
       >

@@ -751,7 +751,7 @@ const PremiumPaintBrands = () => {
             
             <button 
               className='flex-1 py-4 px-6 text-base flex items-center justify-center font-bold border-2 border-pink-200 text-pink-600 hover:bg-pink-50 hover:border-pink-300 transition-all duration-300 rounded-full shadow-lg hover:shadow-xl bg-white cursor-pointer'
-              onClick={() => window.location.href = '/#contact'}
+              onClick={() => window.location.href = '/contact'}
             >
               <span className="flex items-center space-x-2">
                 <span>Get Expert Advice</span>

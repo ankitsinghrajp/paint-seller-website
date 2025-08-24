@@ -302,7 +302,7 @@ const PremiumContactSection = () => {
       id='contact'
     >
       {/* Animated Pink Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-pink-50 via-rose-50 via-pink-100 to-white"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-pink-50  via-pink-100 to-white"></div>
       
       {/* Complex animated background elements */}
       <div className="absolute inset-0 overflow-hidden">

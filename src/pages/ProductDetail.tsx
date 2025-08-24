@@ -42,9 +42,12 @@ const ProductDetailPage: React.FC = () => {
   const [qty, setQty] = useState(1);
   const [imageLoaded, setImageLoaded] = useState(false);
   const [addingToCart, setAddingToCart] = useState(false);
-  const [isLiked, setIsLiked] = useState(false);
   const [showParticles, setShowParticles] = useState(false);
 
+    useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [id]);
+  
   useEffect(() => {
     const timer = setTimeout(() => setImageLoaded(true), 300);
     return () => clearTimeout(timer);
