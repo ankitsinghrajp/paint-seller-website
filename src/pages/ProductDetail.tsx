@@ -76,8 +76,6 @@ const ProductDetailPage: React.FC = () => {
     }, 2000);
   };
 
-  const totalPrice = product.pricePerL * (size === "1L" ? 1 : size === "4L" ? 4 : size === "10L" ? 10 : 20) * qty;
-
   return (
     <div className="min-h-screen pt-28 flex flex-col bg-gradient-to-br from-purple-100 via-pink-50 to-blue-100 relative overflow-hidden">
       <Helmet>

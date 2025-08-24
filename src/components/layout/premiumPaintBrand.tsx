@@ -47,6 +47,7 @@ const AsianPaintsCard = ({ product, index }) => {
       {/* Premium Product Image with consistent sizing */}
       <div className="relative w-full h-48 overflow-hidden flex-shrink-0">
         <div className="absolute inset-3 border border-yellow-300/30 rounded-2xl"></div>
+         <Link  to={`/product/${product.id}`}>
         <img 
           src={product.imageUrl}
           alt={product.name}
@@ -54,7 +55,7 @@ const AsianPaintsCard = ({ product, index }) => {
             isHovered ? 'scale-110 filter brightness-110' : 'scale-100'
           }`}
         />
-        
+        </Link>
         {/* Royal Crown and Sparkles */}
         {isHovered && (
           <div className="absolute inset-0 pointer-events-none">
@@ -118,6 +119,7 @@ const BirlaOpusCard = ({ product, index }) => {
       <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-blue-500 to-indigo-600 transform rotate-45 translate-x-8 -translate-y-8"></div>
       
       <div className="relative w-full h-48 overflow-hidden bg-gradient-to-br from-blue-50 to-indigo-50 flex-shrink-0">
+        <Link  to={`/product/${product.id}`}>
         <img 
           src={product.imageUrl}
           alt={product.name}
@@ -125,6 +127,7 @@ const BirlaOpusCard = ({ product, index }) => {
             isHovered ? 'scale-110' : 'scale-100'
           }`}
         />
+         </Link>
         
         {/* Modern Tech Elements */}
         {isHovered && (
@@ -189,6 +192,7 @@ const DuluxCard = ({ product, index }) => {
            style={{clipPath: 'ellipse(100% 100% at 50% 0%)'}}></div>
       
       <div className="relative w-full h-48 overflow-hidden flex-shrink-0">
+         <Link  to={`/product/${product.id}`}>
         <img 
           src={product.imageUrl}
           alt={product.name}
@@ -196,7 +200,7 @@ const DuluxCard = ({ product, index }) => {
             isHovered ? 'scale-110 brightness-105 cursor-pointer' : 'scale-100'
           }`}
         />
-        
+        </Link>
         {/* Elegant Floating Elements */}
         {isHovered && (
           <div className="absolute cursor-pointer inset-0 pointer-events-none">
@@ -257,6 +261,7 @@ const BergerCard = ({ product, index }) => {
       <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-green-400 via-emerald-500 to-teal-500"></div>
       
       <div className="relative w-full h-48 overflow-hidden bg-gradient-to-br from-green-50 to-emerald-50 flex-shrink-0">
+         <Link  to={`/product/${product.id}`}>
         <img 
           src={product.imageUrl}
           alt={product.name}
@@ -264,6 +269,7 @@ const BergerCard = ({ product, index }) => {
             isHovered ? 'scale-110' : 'scale-100'
           }`}
         />
+        </Link>
         
         {/* Natural Elements */}
         {isHovered && (
@@ -325,6 +331,7 @@ const NerolacCard = ({ product, index }) => {
       </div>
       
       <div className="relative w-full h-48 overflow-hidden flex-shrink-0">
+         <Link  to={`/product/${product.id}`}>
         <img 
           src={product.imageUrl}
           alt={product.name}
@@ -332,6 +339,7 @@ const NerolacCard = ({ product, index }) => {
             isHovered ? 'scale-110 brightness-110' : 'scale-100'
           }`}
         />
+        </Link>
         
         {/* Bold Dynamic Elements */}
         {isHovered && (
@@ -469,6 +477,7 @@ const PremiumPaintBrands = () => {
       rating: 5,
       products: [
         {
+          id: "asian-paints-royale-luxury-emulsion",
           name: "Royale Luxury Emulsion",
           description: "Premium interior emulsion with silk finish and advanced stain resistance",
           imageUrl: royalLuxury,
@@ -478,6 +487,7 @@ const PremiumPaintBrands = () => {
           features: ["Silk Finish", "Stain Resistant", "Anti-Bacterial", "Washable"]
         },
         {
+          id: "asian-paints-apcolite-premium-gloss",
           name: "Apcolite Premium Gloss",
           description: "Advanced exterior weather protection with superior durability",
           imageUrl: apcolitePremium,
@@ -486,6 +496,7 @@ const PremiumPaintBrands = () => {
           features: ["Weather Shield", "UV Protection", "Crack Resistance", "Fade Resistant"]
         },
         {
+          id: "asian-paints-tractor-emulsion-shyne",
           name: "Tractor Emulsion Shyne",
           description: "Heavy-duty industrial coating solution for environments",
           imageUrl: tractorEmulsion,
@@ -494,6 +505,7 @@ const PremiumPaintBrands = () => {
           features: ["Heavy Duty", "Chemical Resistant", "Long Lasting", "Industrial Grade"]
         },
         {
+          id: "asian-paints-ultima-protek-shield",
           name: "Ultima Protek Shield",
           description: "All-weather exterior protection with crack-bridging technology",
           imageUrl: ultimaProtekShield,
@@ -511,6 +523,7 @@ const PremiumPaintBrands = () => {
       rating: 4,
       products: [
         {
+          id: "birla-opus-one-pure-elegance-shine",
           name: "One Pure Elegance Shine",
           description: "Sophisticated velvet finish for modern luxury interiors",
           imageUrl: oneElegance,
@@ -520,6 +533,7 @@ const PremiumPaintBrands = () => {
           features: ["Velvet Finish", "Easy Clean", "Smooth Texture", "Rich Colors"]
         },
         {
+          id: "birla-opus-calista-ever-stay",
           name: "Calista Ever Stay",
           description: "Designer paint collection with creative textural effects",
           imageUrl: calistaDesigner,
@@ -528,6 +542,7 @@ const PremiumPaintBrands = () => {
           features: ["Designer Colors", "Creative Effects", "Premium Quality", "Textural Finish"]
         },
         {
+          id: "birla-opus-style-color-smart",
           name: "Style Color Smart",
           description: "Contemporary paint solutions for modern living spaces",
           imageUrl: styleColor,
@@ -536,6 +551,7 @@ const PremiumPaintBrands = () => {
           features: ["Modern Colors", "Smooth Application", "Durable Finish", "Easy Maintenance"]
         },
         {
+           id: "birla-opus-one-true-look",
           name: "One True Look",
           description: "Contemporary paint solutions for modern living spaces",
           imageUrl: oneTrueLook,
@@ -552,6 +568,7 @@ const PremiumPaintBrands = () => {
       rating: 5,
       products: [
         {
+          id: "dulux-velvet-touch-platinum",
           name: "Velvet Touch Platinum",
           description: "Luxurious matte finish with superior coverage and washability",
           imageUrl: velvetTouchPlatinum,
@@ -561,6 +578,7 @@ const PremiumPaintBrands = () => {
           features: ["Velvet Finish", "Superior Coverage", "Washable", "Premium Quality"]
         },
         {
+          id: "dulux-super-cover",
           name: "Super Cover",
           description: "One-coat coverage paint for quick room transformations",
           imageUrl: superCover,
@@ -569,6 +587,7 @@ const PremiumPaintBrands = () => {
           features: ["One Coat Coverage", "Quick Dry", "High Hide", "Time Saving"]
         },
         {
+          id: "dulux-weathershield-max",
           name: "Weathershield Max",
           description: "Maximum protection against harsh weather conditions",
           imageUrl: weathershield,
@@ -577,6 +596,7 @@ const PremiumPaintBrands = () => {
           features: ["Maximum Protection", "Weather Resistant", "Long Lasting", "Flexible Film"]
         },
         {
+           id: "dulux-promise-acrylic-emulsion",
           name: "Promise Acrylic Emulsion",
           description: "Reliable paint with health benefits for everyday homes",
           imageUrl: promiseEmulsion,
@@ -593,6 +613,7 @@ const PremiumPaintBrands = () => {
       rating: 4,
       products: [
         {
+          id: "berger-silk-glamour",
           name: "Silk Glamour",
           description: "Elegant silk finish with advanced stain resistance technology",
           imageUrl: silkGlamour,
@@ -602,6 +623,7 @@ const PremiumPaintBrands = () => {
           features: ["Velvety Smooth Finish", "Superior Stain Resistance", "Advanced Anti-Fungal", "Rich Color Depth"]
         },
         {
+           id: "berger-easy-clean",
           name: "Easy Clean",
           description: "Washable paint designed for high-traffic areas and busy homes",
           imageUrl: EasyClean,
@@ -610,6 +632,7 @@ const PremiumPaintBrands = () => {
           features: ["Easy to Clean", "Washable Surface", "Durable Finish", "Kid-Friendly"]
         },
         {
+          id: "berger-weathercoat-long-life",
           name: "Weathercoat Long Life",
           description: "Extended protection exterior paint with fade-resistant formula",
           imageUrl: weatherCoatLongLife,
@@ -618,6 +641,7 @@ const PremiumPaintBrands = () => {
           features: ["Long Life Formula", "Weather Resistant", "Fade Resistant", "UV Protection"]
         },
         {
+          id: "berger-weather-coat-anti-dust-pro",
           name: "Weather Coat Anti Dust Pro",
           description: "Revolutionary self-cleaning exterior paint with anti-dust technology",
           imageUrl: weatherCoatAntiDust,
@@ -635,6 +659,7 @@ const PremiumPaintBrands = () => {
       rating: 4,
       products: [
         {
+          id: "nerolac-impression-kashmir-high-sheen",
           name: "Impression Kashmir High Sheen",
           description: "Premium high-sheen finish with Kashmiri elegance.",
           imageUrl: kashmirHighSheen,
@@ -644,6 +669,7 @@ const PremiumPaintBrands = () => {
           features: ["Rich High-Sheen Appearance", "Excellent Washability", "Soft-Touch Smoothness", "Superior Stain Resistance"]
         },
         {
+          id: "nerolac-impression-hd",
           name: "Impression HD",
           description: "Ultra high-definition color technology with vibrant color depth",
           imageUrl: impressionHd,
@@ -652,6 +678,7 @@ const PremiumPaintBrands = () => {
           features: ["Ultra HD Colors", "Sharp Color Definition", "Vibrant Depth", "Color Lock Technology"]
         },
         {
+          id: "nerolac-excel-everlast",
           name: "Excel Everlast",
           description: "10-year performance guarantee with advanced durability formula",
           imageUrl: excelEverlast,
@@ -660,6 +687,7 @@ const PremiumPaintBrands = () => {
           features: ["10 Year Guarantee", "Everlasting Durability", "Superior Quality", "Proven Performance"]
         },
         {
+           id: "nerolac-excel-top-guard-max",
           name: "Excel Top Guard Max",
           description: "Premium protection system for exterior surfaces.",
           imageUrl: excelTopGuard,

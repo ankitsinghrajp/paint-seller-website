@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useEffect, useMemo, useReducer } from "react";
 
-export type Brand = "Asian Paints" | "Berger" | "Dulux" | "Nerolac";
+export type Brand = "Asian Paints" | "Berger" | "Dulux" | "Nerolac" | "Birla Opus";
 export type Application = "Interior" | "Exterior";
 export type SizeOption = "1L" | "4L" | "10L" | "20L";
 

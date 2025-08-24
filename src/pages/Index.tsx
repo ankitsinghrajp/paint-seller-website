@@ -1,7 +1,6 @@
 
 import PremiumPaintBrands from '@/components/layout/premiumPaintBrand';
 import PremiumPaintBenefits from '@/components/layout/BenefitCard';
-import PremiumContactSection from '@/components/layout/contact';
 import PaintSellerFooter from '@/components/layout/footer';
 import Header from '@/components/layout/Header';
 import MobileOptimizedHero from '@/components/layout/herosection';

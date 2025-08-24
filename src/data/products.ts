@@ -15,6 +15,24 @@ import diamonGlo from "../assets/velvet-pearl-glo.png";
 import pearlGlo from "../assets/dulux-velvet-touch-pearl-glo-interior-paint-Photoroom.png";
 import excelEverlast from "../assets/excel-everlast.png";
 import kashmirHighSheen from "../assets/Nerolac-Impressions-Kashmir-High-Sheen_Cheatshot_R1-Photoroom.png";
+import royalLuxury from "../assets/royalLuxuryEmulsion.png";
+import apcolitePremium from "../assets/AsianPaintsApcolitePremiumGlossEnamel-BRWhite-Photoroom.png"
+import tractorEmulsion from "../assets/interior-walls-tractor-emulsion-shyne-asian-paints-Photoroom.png"
+import ultimaProtekShield from "../assets/Ultima-Protek-advanced-Packshot-updated-Photoroom.png";
+import oneElegance from "../assets/pureOneElegance.png";
+import calistaDesigner from "../assets/cochin-colours-birla-opus-calista-ever-stay-interior-paint-1-917x1024-Photoroom.png";
+import styleColor from "../assets/style-color-smart.png";
+import oneTrueLook from "../assets/one-true-look.png";
+import velvetTouchPlatinum from "../assets/velvet-touch-platinum.png";
+import superCover from "../assets/dulux-paints-supercover-1-l-90-white-base-interior-emulsion--base-1-Photoroom.png";
+import weathershield from "../assets/dulux-weathershield-tile-paint-Photoroom.png";
+import promiseEmulsion from "../assets/Promise-acrylic-emulsion.png";
+import silkGlamour from "../assets/Big-Silk_Glamor_Soft_Sheen_0-Photoroom.png";
+import EasyClean from "../assets/easy-clean-fresh-Photoroom.png";
+import weatherCoatLongLife from "../assets/weathercoat-long-life.png";
+import weatherCoatAntiDust from "../assets/berger-weathercoat-anti-dust-Photoroom.png";
+import impressionHd from "../assets/impression-hd.png";
+import excelTopGuard from "../assets/excelTopGuard.png";
 import { Brand, Application, SizeOption, ColorOption } from "@/context/CartContext";
 
 export type Product = {
@@ -246,4 +264,236 @@ export const products: Product[] = [
     colors: colorPalette,
     image: kashmirHighSheen,
   },
+
+  //Popular products are here
+  // Asian Paints Products
+  {
+    id: "asian-paints-royale-luxury-emulsion",
+    name: "Royale Luxury Emulsion",
+    brand: "Asian Paints",
+    application: "Interior",
+    pricePerL: 850,
+    features: ["Silk Finish", "Stain Resistant", "Anti-Bacterial", "Washable"],
+    sizes,
+    colors: colorPalette,
+    image: royalLuxury,
+  },
+  {
+    id: "asian-paints-apcolite-premium-gloss",
+    name: "Apcolite Premium Gloss",
+    brand: "Asian Paints",
+    application: "Exterior",
+    pricePerL: 920,
+    features: ["Weather Shield", "UV Protection", "Crack Resistance", "Fade Resistant"],
+    sizes,
+    colors: colorPalette,
+    image: apcolitePremium,
+  },
+  {
+    id: "asian-paints-tractor-emulsion-shyne",
+    name: "Tractor Emulsion Shyne",
+    brand: "Asian Paints",
+    application: "Interior",
+    pricePerL: 750,
+    features: ["Heavy Duty", "Chemical Resistant", "Long Lasting", "Industrial Grade"],
+    sizes,
+    colors: colorPalette,
+    image: tractorEmulsion,
+  },
+  {
+    id: "asian-paints-ultima-protek-shield",
+    name: "Ultima Protek Shield",
+    brand: "Asian Paints",
+    application: "Exterior",
+    pricePerL: 890,
+    features: ["All Weather", "Crack Bridge", "Algae Resistant", "Flexible Film"],
+    sizes,
+    colors: colorPalette,
+    image: ultimaProtekShield,
+  },
+
+  // Birla Opus Products
+  {
+    id: "birla-opus-one-pure-elegance-shine",
+    name: "One Pure Elegance Shine",
+    brand: "Birla Opus",
+    application: "Interior",
+    pricePerL: 780,
+    features: ["Velvet Finish", "Easy Clean", "Smooth Texture", "Rich Colors"],
+    sizes,
+    colors: colorPalette,
+    image: oneElegance,
+  },
+  {
+    id: "birla-opus-calista-ever-stay",
+    name: "Calista Ever Stay",
+    brand: "Birla Opus",
+    application: "Interior",
+    pricePerL: 720,
+    features: ["Designer Colors", "Creative Effects", "Premium Quality", "Textural Finish"],
+    sizes,
+    colors: colorPalette,
+    image: calistaDesigner,
+  },
+  {
+    id: "birla-opus-style-color-smart",
+    name: "Style Color Smart",
+    brand: "Birla Opus",
+    application: "Interior",
+    pricePerL: 650,
+    features: ["Modern Colors", "Smooth Application", "Durable Finish", "Easy Maintenance"],
+    sizes,
+    colors: colorPalette,
+    image: styleColor,
+  },
+  {
+    id: "birla-opus-one-true-look",
+    name: "One True Look",
+    brand: "Birla Opus",
+    application: "Interior",
+    pricePerL: 680,
+    features: ["Modern Colors", "Smooth Application", "Durable Finish", "Easy Maintenance"],
+    sizes,
+    colors: colorPalette,
+    image: oneTrueLook,
+  },
+
+  // Dulux Products
+  {
+    id: "dulux-velvet-touch-platinum",
+    name: "Velvet Touch Platinum",
+    brand: "Dulux",
+    application: "Interior",
+    pricePerL: 820,
+    features: ["Velvet Finish", "Superior Coverage", "Washable", "Premium Quality"],
+    sizes,
+    colors: colorPalette,
+    image: velvetTouchPlatinum,
+  },
+  {
+    id: "dulux-super-cover",
+    name: "Super Cover",
+    brand: "Dulux",
+    application: "Interior",
+    pricePerL: 760,
+    features: ["One Coat Coverage", "Quick Dry", "High Hide", "Time Saving"],
+    sizes,
+    colors: colorPalette,
+    image: superCover,
+  },
+  {
+    id: "dulux-weathershield-max",
+    name: "Weathershield Max",
+    brand: "Dulux",
+    application: "Exterior",
+    pricePerL: 950,
+    features: ["Maximum Protection", "Weather Resistant", "Long Lasting", "Flexible Film"],
+    sizes,
+    colors: colorPalette,
+    image: weathershield,
+  },
+  {
+    id: "dulux-promise-acrylic-emulsion",
+    name: "Promise Acrylic Emulsion",
+    brand: "Dulux",
+    application: "Interior",
+    pricePerL: 590,
+    features: ["Anti-Bacterial", "Good Coverage", "Value for Money", "Health Benefits"],
+    sizes,
+    colors: colorPalette,
+    image: promiseEmulsion,
+  },
+
+  // Berger Products
+  {
+    id: "berger-silk-glamour",
+    name: "Silk Glamour",
+    brand: "Berger",
+    application: "Interior",
+    pricePerL: 790,
+    features: ["Velvety Smooth Finish", "Superior Stain Resistance", "Advanced Anti-Fungal", "Rich Color Depth"],
+    sizes,
+    colors: colorPalette,
+    image: silkGlamour,
+  },
+  {
+    id: "berger-easy-clean",
+    name: "Easy Clean",
+    brand: "Berger",
+    application: "Interior",
+    pricePerL: 690,
+    features: ["Easy to Clean", "Washable Surface", "Durable Finish", "Kid-Friendly"],
+    sizes,
+    colors: colorPalette,
+    image: EasyClean,
+  },
+  {
+    id: "berger-weathercoat-long-life",
+    name: "Weathercoat Long Life",
+    brand: "Berger",
+    application: "Exterior",
+    pricePerL: 870,
+    features: ["Long Life Formula", "Weather Resistant", "Fade Resistant", "UV Protection"],
+    sizes,
+    colors: colorPalette,
+    image: weatherCoatLongLife,
+  },
+  {
+    id: "berger-weather-coat-anti-dust-pro",
+    name: "Weather Coat Anti Dust Pro",
+    brand: "Berger",
+    application: "Exterior",
+    pricePerL: 810,
+    features: ["Anti-Dust Technology", "Self Cleaning", "Weather Protection", "Dirt Resistant"],
+    sizes,
+    colors: colorPalette,
+    image: weatherCoatAntiDust,
+  },
+
+  // Nerolac Products
+  {
+    id: "nerolac-impression-kashmir-high-sheen",
+    name: "Impression Kashmir High Sheen",
+    brand: "Nerolac",
+    application: "Interior",
+    pricePerL: 740,
+    features: ["Rich High-Sheen Appearance", "Excellent Washability", "Soft-Touch Smoothness", "Superior Stain Resistance"],
+    sizes,
+    colors: colorPalette,
+    image: kashmirHighSheen,
+  },
+  {
+    id: "nerolac-impression-hd",
+    name: "Impression HD",
+    brand: "Nerolac",
+    application: "Interior",
+    pricePerL: 710,
+    features: ["Ultra HD Colors", "Sharp Color Definition", "Vibrant Depth", "Color Lock Technology"],
+    sizes,
+    colors: colorPalette,
+    image: impressionHd,
+  },
+  {
+    id: "nerolac-excel-everlast",
+    name: "Excel Everlast",
+    brand: "Nerolac",
+    application: "Interior",
+    pricePerL: 670,
+    features: ["10 Year Guarantee", "Everlasting Durability", "Superior Quality", "Proven Performance"],
+    sizes,
+    colors: colorPalette,
+    image: excelEverlast,
+  },
+  {
+    id: "nerolac-excel-top-guard-max",
+    name: "Excel Top Guard Max",
+    brand: "Nerolac",
+    application: "Exterior",
+    pricePerL: 880,
+    features: ["Heat & UV Resistant", "Waterproofing Technology", "Crack-Bridging Formula", "Anti-Algae Protection"],
+    sizes,
+    colors: colorPalette,
+    image: excelTopGuard,
+  }
+
 ];
