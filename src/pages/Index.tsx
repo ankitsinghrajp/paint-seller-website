@@ -29,8 +29,7 @@ const Index = () => {
       {/* Quality Assurance Section */}
      <QualityStandardsSection/>
 
-      {/* Final CTA & Contact */}
-   <PremiumContactSection/>
+
 
       {/* Footer */}
       <PaintSellerFooter/>

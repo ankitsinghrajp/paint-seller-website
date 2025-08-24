@@ -451,3 +451,35 @@ All colors MUST be HSL.
         .animate-float {
           animation: float 6s ease-in-out infinite;
         }
+
+ @keyframes card-animate {
+          0% {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        
+        @keyframes brand-animate {
+          0% {
+            opacity: 0;
+            transform: translateX(-50px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+        
+        .card-animate {
+          animation: card-animate 0.6s ease-out forwards;
+          opacity: 0;
+        }
+        
+        .brand-animate {
+          animation: brand-animate 0.8s ease-out forwards;
+          opacity: 0;
+        }
