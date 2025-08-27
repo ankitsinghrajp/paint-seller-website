@@ -1,5 +1,5 @@
-import  { useState } from 'react';
-import { Check,  Sparkles, Award, ChevronRight, Star, Palette, Crown, Diamond, Leaf, Heart, Zap } from 'lucide-react';
+import  { useState, useEffect } from 'react';
+import { Check,  Sparkles, Award, ChevronRight, Star, Palette, Crown, Diamond, Leaf, Heart, Zap, ChevronDown, ChevronUp } from 'lucide-react';
 import { Button } from '../ui/button';
 import royalLuxury from "../../assets/royalLuxuryEmulsion.png";
 import apcolitePremium from "../../assets/AsianPaintsApcolitePremiumGlossEnamel-BRWhite-Photoroom.png"
@@ -22,6 +22,7 @@ import impressionHd from "../../assets/impression-hd.png";
 import excelEverlast from "../../assets/excel-everlast.png";
 import excelTopGuard from "../../assets/excelTopGuard.png";
 import { Link } from 'react-router-dom';
+import PaintProductsCarousel from './heroCarousel';
 
 // Asian Paints - Royal/Premium Style with Gold Accents
 const AsianPaintsCard = ({ product, index }) => {
@@ -45,9 +46,9 @@ const AsianPaintsCard = ({ product, index }) => {
       <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500"></div>
       
       {/* Premium Product Image with consistent sizing */}
+       <Link  to={`/product/${product.id}`}>
       <div className="relative w-full h-48 overflow-hidden flex-shrink-0">
         <div className="absolute inset-3 border border-yellow-300/30 rounded-2xl"></div>
-         <Link  to={`/product/${product.id}`}>
         <img 
           src={product.imageUrl}
           alt={product.name}
@@ -55,7 +56,7 @@ const AsianPaintsCard = ({ product, index }) => {
             isHovered ? 'scale-110 filter brightness-110' : 'scale-100'
           }`}
         />
-        </Link>
+      
         {/* Royal Crown and Sparkles */}
         {isHovered && (
           <div className="absolute inset-0 pointer-events-none">
@@ -72,6 +73,7 @@ const AsianPaintsCard = ({ product, index }) => {
           </div>
         )}
       </div>
+       
       
       {/* Royal Content - flexible height */}
       <div className="p-6 bg-gradient-to-b from-transparent to-orange-50/50 flex-grow flex flex-col">
@@ -88,11 +90,8 @@ const AsianPaintsCard = ({ product, index }) => {
         <p className="text-sm text-gray-700 mb-4 leading-relaxed italic font-medium line-clamp-3 flex-shrink-0">
           "{product.description}"
         </p>
-        
-
-
-      
       </div>
+      </Link>
     </div>
   );
 };
@@ -118,8 +117,8 @@ const BirlaOpusCard = ({ product, index }) => {
       {/* Modern Geometric Header */}
       <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-blue-500 to-indigo-600 transform rotate-45 translate-x-8 -translate-y-8"></div>
       
-      <div className="relative w-full h-48 overflow-hidden bg-gradient-to-br from-blue-50 to-indigo-50 flex-shrink-0">
         <Link  to={`/product/${product.id}`}>
+      <div className="relative w-full h-48 overflow-hidden bg-gradient-to-br from-blue-50 to-indigo-50 flex-shrink-0">
         <img 
           src={product.imageUrl}
           alt={product.name}
@@ -127,7 +126,7 @@ const BirlaOpusCard = ({ product, index }) => {
             isHovered ? 'scale-110' : 'scale-100'
           }`}
         />
-         </Link>
+         
         
         {/* Modern Tech Elements */}
         {isHovered && (
@@ -160,11 +159,8 @@ const BirlaOpusCard = ({ product, index }) => {
         <p className="text-sm text-gray-600 mb-4 leading-relaxed line-clamp-3 flex-shrink-0">
           {product.description}
         </p>
-        
-
-
-   
       </div>
+      </Link>
     </div>
   );
 };
@@ -191,8 +187,8 @@ const DuluxCard = ({ product, index }) => {
       <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-r from-purple-400 via-pink-400 to-purple-500 opacity-10 rounded-t-3xl"
            style={{clipPath: 'ellipse(100% 100% at 50% 0%)'}}></div>
       
-      <div className="relative w-full h-48 overflow-hidden flex-shrink-0">
          <Link  to={`/product/${product.id}`}>
+      <div className="relative w-full h-48 overflow-hidden flex-shrink-0">
         <img 
           src={product.imageUrl}
           alt={product.name}
@@ -200,7 +196,7 @@ const DuluxCard = ({ product, index }) => {
             isHovered ? 'scale-110 brightness-105 cursor-pointer' : 'scale-100'
           }`}
         />
-        </Link>
+        
         {/* Elegant Floating Elements */}
         {isHovered && (
           <div className="absolute cursor-pointer inset-0 pointer-events-none">
@@ -231,11 +227,8 @@ const DuluxCard = ({ product, index }) => {
         <p className="text-sm text-gray-600 mb-4 leading-relaxed text-center italic line-clamp-3 flex-shrink-0">
           "{product.description}"
         </p>
-        
-   
-
-
       </div>
+      </Link>
     </div>
   );
 };
@@ -260,8 +253,8 @@ const BergerCard = ({ product, index }) => {
       {/* Natural/Organic Header */}
       <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-green-400 via-emerald-500 to-teal-500"></div>
       
-      <div className="relative w-full h-48 overflow-hidden bg-gradient-to-br from-green-50 to-emerald-50 flex-shrink-0">
          <Link  to={`/product/${product.id}`}>
+      <div className="relative w-full h-48 overflow-hidden bg-gradient-to-br from-green-50 to-emerald-50 flex-shrink-0">
         <img 
           src={product.imageUrl}
           alt={product.name}
@@ -269,7 +262,7 @@ const BergerCard = ({ product, index }) => {
             isHovered ? 'scale-110' : 'scale-100'
           }`}
         />
-        </Link>
+      
         
         {/* Natural Elements */}
         {isHovered && (
@@ -302,8 +295,8 @@ const BergerCard = ({ product, index }) => {
         <p className="text-sm text-gray-600 mb-4 leading-relaxed line-clamp-3 flex-shrink-0">
           {product.description}
         </p>
-
       </div>
+        </Link>
     </div>
   );
 };
@@ -330,8 +323,8 @@ const NerolacCard = ({ product, index }) => {
         <div className="absolute top-0 right-0 w-16 h-full bg-gradient-to-b from-red-400 to-pink-500 transform skew-x-12 translate-x-6 opacity-20"></div>
       </div>
       
-      <div className="relative w-full h-48 overflow-hidden flex-shrink-0">
          <Link  to={`/product/${product.id}`}>
+      <div className="relative w-full h-48 overflow-hidden flex-shrink-0">
         <img 
           src={product.imageUrl}
           alt={product.name}
@@ -339,7 +332,7 @@ const NerolacCard = ({ product, index }) => {
             isHovered ? 'scale-110 brightness-110' : 'scale-100'
           }`}
         />
-        </Link>
+     
         
         {/* Bold Dynamic Elements */}
         {isHovered && (
@@ -371,16 +364,34 @@ const NerolacCard = ({ product, index }) => {
         <p className="text-sm text-gray-600 mb-4 leading-relaxed font-medium line-clamp-3 flex-shrink-0">
           {product.description}
         </p>
-
-
       </div>
+         </Link>
     </div>
   );
 };
 
 const BrandSection = ({ brand, index }) => {
   const [showAll, setShowAll] = useState(false);
-  const displayedProducts = showAll ? brand.products : brand.products.slice(0, 4);
+  const [isMobile, setIsMobile] = useState(false);
+  
+  // Check if device is mobile
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768); // md breakpoint
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+  
+  // Show only 1 product on mobile, 4 on desktop when not expanded
+  const getDisplayedProducts = () => {
+    if (showAll) return brand.products;
+    return isMobile ? brand.products.slice(0, 1) : brand.products.slice(0, 4);
+  };
+  
+  const displayedProducts = getDisplayedProducts();
   
   const getCardComponent = (brandName) => {
     switch (brandName) {
@@ -409,39 +420,43 @@ const BrandSection = ({ brand, index }) => {
   
   return (
     <div 
-      className="mb-20"
+      className="mb-16 md:mb-20"
       style={{ 
         animationDelay: `${index * 300}ms`
       }}
     >
-      {/* Brand Header */}
-      <div className="flex items-center justify-center sm:justify-between mb-8 flex-wrap">
-        <div className="flex items-center mb-4 sm:mb-0">
-          <div className={`w-14 h-14 rounded-3xl mr-4 flex items-center justify-center ${brand.brandColor} hover:scale-110 transition-transform duration-300 shadow-xl`}>
-            <BrandIcon className="h-6 w-6 text-white" />
+      {/* Brand Header - Mobile Optimized */}
+      <div className="flex items-center justify-center md:justify-between mb-6 md:mb-8 flex-wrap px-2">
+        <div className="flex items-center mb-4 md:mb-0">
+          <div className={`w-12 h-12 md:w-14 md:h-14 rounded-3xl mr-3 md:mr-4 flex items-center justify-center ${brand.brandColor} hover:scale-110 transition-transform duration-300 shadow-xl flex-shrink-0`}>
+            <BrandIcon className="h-5 w-5 md:h-6 md:w-6 text-white" />
           </div>
-          <div className="text-center sm:text-left">
-            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-800 mb-1 hover:text-pink-600 transition-colors duration-300">
+          <div className="">
+            <h3 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-gray-800 mb-1 hover:text-pink-600 transition-colors duration-300 leading-tight">
               {brand.name}
             </h3>
-            <p className="text-gray-600 text-sm sm:text-base italic">"{brand.tagline}"</p>
+            <p className="text-gray-600 text-xs md:text-sm lg:text-base italic leading-tight">"{brand.tagline}"</p>
           </div>
         </div>
       </div>
       
-      {/* Popular Products Label */}
-      <div className="text-center mb-8">
-        <div className="inline-flex items-center justify-center p-3 bg-gradient-to-r from-orange-100 via-rose-100 to-pink-100 rounded-2xl border border-orange-200/50 hover:shadow-lg transition-shadow duration-300">
-          <Sparkles className="h-5 w-5 text-orange-600 mr-2 animate-spin" style={{ animationDuration: '3s' }} />
-          <span className="text-orange-700 font-bold text-sm sm:text-base uppercase tracking-wide">
-            🔥 Most Popular Products from {brand.name}
+      {/* Popular Products Label - Mobile Optimized */}
+      <div className="text-center mb-6 md:mb-8 px-2">
+        <div className="inline-flex items-center justify-center p-2 md:p-3 bg-gradient-to-r from-orange-100 via-rose-100 to-pink-100 rounded-xl md:rounded-2xl border border-orange-200/50 hover:shadow-lg transition-shadow duration-300">
+          <Sparkles className="h-4 w-4 md:h-5 md:w-5 text-orange-600 mr-2 animate-spin" style={{ animationDuration: '3s' }} />
+          <span className="text-orange-700 font-bold text-xs md:text-sm lg:text-base uppercase tracking-wide">
+            🔥 {isMobile ? 'Popular from' : 'Most Popular Products from'} {brand.name}
           </span>
-          <Sparkles className="h-5 w-5 text-orange-600 ml-2 animate-spin" style={{ animationDuration: '3s' }} />
+          <Sparkles className="h-4 w-4 md:h-5 md:w-5 text-orange-600 ml-2 animate-spin" style={{ animationDuration: '3s' }} />
         </div>
       </div>
       
       {/* Products Grid - Responsive with equal height cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-8">
+      <div className={`grid gap-4 md:gap-6 mb-6 md:mb-8 px-2 md:px-0 ${
+        isMobile 
+          ? 'grid-cols-1' 
+          : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'
+      }`}>
         {displayedProducts.map((product, productIndex) => (
           <CardComponent 
             key={productIndex} 
@@ -451,16 +466,30 @@ const BrandSection = ({ brand, index }) => {
         ))}
       </div>
       
-      {/* Show More Button */}
-      {brand.products.length > 4 && (
-        <div className="text-center">
+      {/* Show More Button - Enhanced for Mobile */}
+      {brand.products.length > (isMobile ? 1 : 4) && (
+        <div className="text-center px-2">
           <Button
             onClick={() => setShowAll(!showAll)}
             variant="outline"
-            className="border-2 border-pink-200 text-pink-600 hover:bg-pink-50 hover:border-pink-300 transition-all duration-300 px-6 py-3 rounded-full font-semibold text-base"
+            className="border-2 border-pink-200 text-pink-600 hover:bg-pink-50 hover:border-pink-300 transition-all duration-300 px-4 md:px-6 py-2 md:py-3 rounded-full font-semibold text-sm md:text-base w-full md:w-auto max-w-sm"
           >
-            {showAll ? 'Show Less' : `View All ${brand.products.length} Products`}
-            <ChevronRight className={`h-4 w-4 ml-2 transition-transform duration-300 ${showAll ? 'rotate-90' : ''}`} />
+            <span className="flex items-center justify-center">
+              {showAll ? (
+                <>
+                  Show Less
+                  <ChevronUp className="h-4 w-4 ml-2 transition-transform duration-300" />
+                </>
+              ) : (
+                <>
+                  {isMobile 
+                    ? `View All ${brand.products.length} Products` 
+                    : `View All ${brand.products.length} Products`
+                  }
+                  <ChevronDown className="h-4 w-4 ml-2 transition-transform duration-300" />
+                </>
+              )}
+            </span>
           </Button>
         </div>
       )}
@@ -701,7 +730,7 @@ const PremiumPaintBrands = () => {
 
   return (
     <>
-      <section className="py-16 relative overflow-hidden min-h-screen">
+      <section className="py-8 md:py-16 relative overflow-hidden min-h-screen">
         {/* Animated Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-pink-50/30"></div>
         
@@ -713,14 +742,14 @@ const PremiumPaintBrands = () => {
         </div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          {/* Header */}
-          <div className="text-center mb-12">
-            <h2 className="font-bold text-3xl sm:text-4xl lg:text-5xl xl:text-6xl text-gray-800 mb-4 leading-tight">
+          {/* Header - Mobile Optimized */}
+          <div className="text-center mb-8 md:mb-12 px-2">
+            <h2 className="font-bold text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl text-gray-800 mb-3 md:mb-4 leading-tight">
               🎨 Most Popular Products by
-              <span className="bg-gradient-to-r from-pink-600 via-rose-500 to-orange-500 bg-clip-text text-transparent"> Top Brands</span>
+              <span className="bg-gradient-to-r from-pink-600 via-rose-500 to-orange-500 bg-clip-text text-transparent block md:inline"> Top Brands</span>
             </h2>
             
-            <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed px-4">
+            <p className="text-sm md:text-base lg:text-lg xl:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
               🔥 Discover the <strong>most popular and trending</strong> paint products from India's leading brands. 
               These are the <strong>customer favorites</strong> that everyone is talking about!
               <br className="hidden sm:block"/>
@@ -728,34 +757,38 @@ const PremiumPaintBrands = () => {
             </p>
           </div>
 
+           
+
+
           {/* Brand Sections */}
-          <div className="space-y-16 pt-8">
+          <div className="space-y-12 md:space-y-16 pt-4 md:pt-8">
             {paintBrands.map((brand, index) => (
               <BrandSection key={index} brand={brand} index={index} />
             ))}
           </div>
         </div>
 
-        {/* Call to Action */}
-        <div className='flex flex-col items-center mt-16 relative z-10 space-y-4 px-4'>   
-          <div className="flex flex-col sm:flex-row gap-4 w-full max-w-md">
+        {/* Call to Action - Mobile Optimized */}
+        <div className='flex flex-col items-center mt-12 md:mt-16 relative z-10 space-y-4 px-4'>   
+          <div className="flex flex-col sm:flex-row gap-3 md:gap-4 w-full max-w-lg">
             <button 
-              className='flex-1 py-4 px-6 text-base flex items-center justify-center font-bold bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white border-0 shadow-xl hover:shadow-2xl transition-all duration-300 rounded-full cursor-pointer'
+              className='flex-1 py-3 md:py-4 px-4 md:px-6 text-sm md:text-base flex items-center justify-center font-bold bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white border-0 shadow-xl hover:shadow-2xl transition-all duration-300 rounded-full cursor-pointer'
               onClick={() => window.location.href = '/products'}
             >
               <span className="flex items-center space-x-2">
-                <span>View All Products</span>
-                <ChevronRight className='h-5 w-5'/>
+                <span>Explore Products</span>
+                <ChevronRight className='h-4 w-4 md:h-5 md:w-5'/>
               </span>
             </button>
             
             <button 
-              className='flex-1 py-4 px-6 text-base flex items-center justify-center font-bold border-2 border-pink-200 text-pink-600 hover:bg-pink-50 hover:border-pink-300 transition-all duration-300 rounded-full shadow-lg hover:shadow-xl bg-white cursor-pointer'
+              className='flex-1 py-3 md:py-4 px-4 md:px-6 text-sm md:text-base flex items-center justify-center font-bold border-2 border-pink-200 text-pink-600 hover:bg-pink-50 hover:border-pink-300 transition-all duration-300 rounded-full shadow-lg hover:shadow-xl bg-white cursor-pointer'
               onClick={() => window.location.href = '/contact'}
             >
               <span className="flex items-center space-x-2">
-                <span>Get Expert Advice</span>
-                <Award className='h-5 w-5'/>
+                <span className="hidden sm:inline">Get Expert Advice</span>
+                <span className="sm:hidden">Expert Advice</span>
+                <Award className='h-4 w-4 md:h-5 md:w-5'/>
               </span>
             </button>
           </div>

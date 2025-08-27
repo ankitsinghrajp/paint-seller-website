@@ -6,6 +6,9 @@ import Header from '@/components/layout/Header';
 import MobileOptimizedHero from '@/components/layout/herosection';
 import QualityStandardsSection from '@/components/layout/qualityStandardSection';
 import ProductCarousel from '@/components/layout/slider';
+import Faqs from '@/components/layout/faqs';
+import BrandShowcase from '@/components/contact/brandShowCase';
+import PaintProductsCarousel from '@/components/layout/heroCarousel';
 
 const Index = () => {
 
@@ -18,16 +21,18 @@ const Index = () => {
 
   
           <MobileOptimizedHero/>
-         <ProductCarousel/>
+         
+         {/* <ProductCarousel/> */}
       {/* Paint Brand Showcase */}
       <PremiumPaintBrands/>
 
-      {/* Benefits Section */}
-     <PremiumPaintBenefits/>
+      <QualityStandardsSection/>
 
-      {/* Quality Assurance Section */}
-     <QualityStandardsSection/>
+     {/* Trusted Paint Brands */}
+     <BrandShowcase/>
 
+     {/* FAQ Section */}
+     <Faqs/>
 
 
       {/* Footer */}

@@ -13,7 +13,7 @@ import {
   PaginationPrevious,
 } from "@/components/ui/pagination";
 import { Helmet } from "react-helmet-async";
-import { Search, Filter, X, Grid3X3, List, Sparkles, Palette, Zap, Check, MessageCircle, ArrowRight, ArrowLeft, Send } from "lucide-react";
+import { Search, Filter, X, Sparkles, Palette, Zap, Check } from "lucide-react";
 
 const PAGE_SIZE = 8;
 
@@ -175,19 +175,30 @@ Size: ${stepSelection.size}`;
         <Zap className="absolute bottom-32 left-16 w-5 h-5 text-yellow-400/30 animate-bounce" style={{ animationDelay: '2.5s' }} />
       </div>
 
-      <main className="container pt-20 mx-auto flex-1 py-8 px-6 relative z-10">
+      <main className="flex-1 py-8relative z-10">
         
         {/* Header Section */}
-        <div className="mb-12">
-          <div className="text-center max-w-2xl mx-auto relative">
-            <h1 className="text-6xl font-black bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 bg-clip-text text-transparent mb-6">
-              Premium Paint Collection
-            </h1>
-            <p className="text-xl text-gray-700 leading-relaxed">
-              🎨 Transform your space with our stunning collection of premium paints
-            </p>
-          </div>
+           <section className="relative h-96 bg-gray-950 overflow-hidden">
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 opacity-60 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: `url('https://images.unsplash.com/photo-1618221469555-7f3ad97540d6?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')`
+        }}
+      />
+
+      <div className="relative z-10 container mx-auto px-4 py-32 text-center">
+        <div className="space-y-8">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-black bg-gradient-to-r from-orange-600 via-pink-600 to-orange-500 bg-clip-text text-transparent mb-6 leading-tight">
+            PREMIUM PAINT COLLECTION
+          </h1>
+          <p className="text-xl md:text-xl text-gray-100 max-w-3xl mx-auto leading-relaxed">
+           🎨 Transform your space with our stunning collection of premium paints
+          </p>
+       
         </div>
+      </div>
+    </section>
 
 
         {/* Search and Filter Bar */}

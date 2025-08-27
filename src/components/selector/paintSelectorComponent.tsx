@@ -65,7 +65,7 @@ export const PaintSelectorComponent = () => {
   };
 
   return (
-    <div className="min-h-screen pt-16 sm:pt-20 bg-gradient-to-br from-purple-50 via-pink-50 to-yellow-50 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-yellow-50 relative overflow-hidden">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-20 sm:-top-40 -right-20 sm:-right-40 w-40 sm:w-80 h-40 sm:h-80 bg-gradient-to-br from-purple-400/20 to-pink-400/20 rounded-full blur-3xl animate-pulse" />
@@ -80,16 +80,31 @@ export const PaintSelectorComponent = () => {
         <Zap className="absolute bottom-32 left-16 w-5 h-5 text-yellow-400/30 animate-bounce" style={{ animationDelay: '2.5s' }} />
       </div>
 
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 py-6 sm:py-12 space-y-6 sm:space-y-12">
+      <div className="relative z-10 space-y-6 sm:space-y-12">
         {/* Header */}
-        <div className="text-center space-y-4 sm:space-y-6">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl pb-2 sm:pb-3 font-black bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 bg-clip-text text-transparent mb-4 sm:mb-6 leading-tight">
-             Intelligent Paint Selector 
+        
+          <section className="relative h-96 mt-20 bg-gray-950 overflow-hidden">
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 opacity-60 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: `url('https://images.unsplash.com/photo-1645237455598-e8f02d706a4e?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')`
+        }}
+      />
+
+      <div className="relative z-10 container mx-auto px-4 py-32 text-center">
+        <div className="space-y-8">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-black bg-gradient-to-r from-orange-600 via-pink-600 to-orange-500 bg-clip-text text-transparent mb-6 leading-tight">
+            INTELLIGENT PAINT SELECTOR
           </h1>
-          <p className="text-base sm:text-lg pb-10 md:text-xl text-gray-700 leading-relaxed max-w-xl sm:max-w-2xl mx-auto px-2">
+          <p className="text-xl md:text-xl text-gray-100 max-w-3xl mx-auto leading-relaxed">
             Discover the perfect paint for your project with our intelligent selection wizard
           </p>
-          
+       
+        </div>
+      </div>
+    </section>
+          <div className="text-center space-y-4 sm:space-y-6">
           {/* Progress Indicators - Mobile optimized */}
           <div className="flex justify-center items-center gap-2 sm:gap-4 mt-6 sm:mt-8 px-2">
             {(['brand', 'application', 'color', 'products']).map((step, index) => {
